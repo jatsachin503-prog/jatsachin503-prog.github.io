@@ -14,7 +14,7 @@
       --bg2: #0b1220;
       --panel: rgba(255, 255, 255, 0.06);
       --panel2: rgba(255, 255, 255, 0.04);
-      --line: rgba(255, 255, 255, 0.1);
+      --line: rgba(255, 255, 255, 0.10);
       --text: #e5eefc;
       --muted: #b7c4d9;
       --sky: #38bdf8;
@@ -26,13 +26,8 @@
       --radius: 24px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -51,7 +46,7 @@
       text-decoration: none;
     }
 
-    img {
+    img, video {
       max-width: 100%;
       display: block;
     }
@@ -151,16 +146,10 @@
       transition: width 0.25s ease;
     }
 
-    .nav-links a:hover {
-      color: #fff;
-    }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a:hover::after { width: 100%; }
 
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .hero,
-    .section {
+    .hero, .section {
       padding: 68px 0;
     }
 
@@ -184,22 +173,11 @@
       align-items: center;
     }
 
-    .grid-2 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
     .grid-3,
-    .project-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .cert-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .contact-grid {
-      grid-template-columns: 1.2fr 0.8fr;
-    }
+    .project-grid { grid-template-columns: repeat(3, 1fr); }
+    .cert-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { grid-template-columns: 1.2fr 0.8fr; }
 
     .badge {
       display: inline-block;
@@ -277,7 +255,7 @@
 
     .card:hover {
       transform: translateY(-8px) scale(1.01);
-      box-shadow: 0 26px 56px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 26px 56px rgba(0, 0, 0, 0.30);
       border-color: rgba(56, 189, 248, 0.28);
     }
 
@@ -326,8 +304,8 @@
       display: inline-block;
       padding: 7px 12px;
       border-radius: 999px;
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.2);
+      background: rgba(56, 189, 248, 0.10);
+      border: 1px solid rgba(56, 189, 248, 0.20);
       color: #d6f3ff;
       font-size: 14px;
     }
@@ -336,7 +314,7 @@
       display: inline-block;
       padding: 6px 11px;
       border-radius: 999px;
-      background: rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0.20);
       border: 1px solid var(--line);
       color: #d8dfec;
       font-size: 12px;
@@ -362,7 +340,7 @@
       left: -120%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
       transition: left 0.6s ease;
     }
 
@@ -417,8 +395,8 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: #d5fff3;
-      background: rgba(52, 211, 153, 0.1);
-      border: 1px solid rgba(52, 211, 153, 0.2);
+      background: rgba(52, 211, 153, 0.10);
+      border: 1px solid rgba(52, 211, 153, 0.20);
     }
 
     .resume-note {
@@ -471,7 +449,7 @@
       display: none;
       width: 100%;
       border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255,255,255,0.08);
       cursor: pointer;
     }
 
@@ -487,16 +465,16 @@
     }
 
     .project-controls button {
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255,255,255,0.08);
       color: white;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255,255,255,0.10);
       border-radius: 12px;
       padding: 8px 14px;
       cursor: pointer;
     }
 
     .project-controls button:hover {
-      background: rgba(255, 255, 255, 0.14);
+      background: rgba(255,255,255,0.14);
     }
 
     .view-demo-btn {
@@ -504,8 +482,8 @@
       margin-top: 10px;
       padding: 10px 14px;
       border-radius: 12px;
-      background: rgba(56, 189, 248, 0.14);
-      border: 1px solid rgba(56, 189, 248, 0.25);
+      background: rgba(56,189,248,0.14);
+      border: 1px solid rgba(56,189,248,0.25);
       color: #d6f3ff;
       font-weight: 600;
     }
@@ -513,7 +491,7 @@
     .video-frame {
       width: 100%;
       border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.10);
       margin-top: 14px;
       background: #000;
     }
@@ -521,7 +499,7 @@
     .popup {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.82);
+      background: rgba(0,0,0,0.82);
       display: none;
       align-items: center;
       justify-content: center;
@@ -533,8 +511,8 @@
       max-width: 95%;
       max-height: 90vh;
       border-radius: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.35);
     }
 
     .popup.active {
@@ -551,13 +529,8 @@
     }
 
     @media (max-width: 960px) {
-      h1 {
-        font-size: 42px;
-      }
-
-      h2 {
-        font-size: 28px;
-      }
+      h1 { font-size: 42px; }
+      h2 { font-size: 28px; }
 
       .hero-grid,
       .grid-2,
@@ -623,7 +596,7 @@
         <div class="cta-row" style="margin-top: 24px;">
           <a class="btn btn-primary" href="#contact">Hire Me</a>
           <a class="btn btn-secondary" href="Sachin_Jat_Resume.docx" download>Download Resume</a>
-          <a class="btn btn-secondary" href="https://github.com/sachinjat" target="_blank">GitHub</a>
+          <a class="btn btn-secondary" href="https://github.com/jatsachin503-prog" target="_blank">GitHub</a>
           <a class="btn btn-secondary" href="https://www.linkedin.com/in/sachinjat" target="_blank">LinkedIn</a>
         </div>
         <p class="resume-note">Resume download uses the file included in this website package.</p>
@@ -722,7 +695,7 @@
           </div>
 
           <div class="cta-row" style="margin-top: 18px;">
-            <a class="btn btn-secondary" href="https://github.com/sachinjat" target="_blank">View Repository</a>
+            <a class="btn btn-secondary" href="https://github.com/jatsachin503-prog" target="_blank">View Repository</a>
           </div>
         </div>
 
@@ -750,7 +723,7 @@
           </div>
 
           <div class="cta-row" style="margin-top: 18px;">
-            <a class="btn btn-secondary" href="https://github.com/sachinjat" target="_blank">View Repository</a>
+            <a class="btn btn-secondary" href="https://github.com/jatsachin503-prog" target="_blank">View Repository</a>
           </div>
         </div>
 
@@ -836,10 +809,18 @@
       <h2>Development Activity</h2>
       <div class="grid-2" style="margin-top: 24px;">
         <div class="card reveal">
-          <img src="https://github-readme-stats.vercel.app/api?username=sachinjat&show_icons=true&theme=tokyonight" alt="GitHub stats" style="width: 100%; border-radius: 16px;" />
+          <img
+            src="https://github-readme-stats.vercel.app/api?username=jatsachin503-prog&show_icons=true&theme=tokyonight"
+            alt="GitHub stats"
+            style="width: 100%; border-radius: 16px;"
+          />
         </div>
         <div class="card reveal">
-          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sachinjat&layout=compact&theme=tokyonight" alt="Top languages" style="width: 100%; border-radius: 16px;" />
+          <img
+            src="https://github-readme-stats.vercel.app/api/top-langs/?username=jatsachin503-prog&layout=compact&theme=tokyonight"
+            alt="Top languages"
+            style="width: 100%; border-radius: 16px;"
+          />
         </div>
       </div>
     </div>
@@ -864,7 +845,7 @@
           <input class="input-like" value="Toronto, ON" readonly />
           <a class="btn btn-primary" style="width: 100%; text-align: center;" href="mailto:sachinjat052002@gmail.com?subject=Opportunity for Sachin Jat">Send Email</a>
           <div class="cta-row" style="margin-top: 12px;">
-            <a class="btn btn-secondary" href="https://github.com/sachinjat" target="_blank">GitHub</a>
+            <a class="btn btn-secondary" href="https://github.com/jatsachin503-prog" target="_blank">GitHub</a>
             <a class="btn btn-secondary" href="https://www.linkedin.com/in/sachinjat" target="_blank">LinkedIn</a>
           </div>
         </div>
