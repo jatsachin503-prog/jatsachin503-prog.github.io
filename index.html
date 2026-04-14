@@ -1,14 +1,301 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Sachin Jat Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sachin Jat | Portfolio</title>
+  <style>
+    :root{
+      --bg:#020617;
+      --panel:rgba(255,255,255,.06);
+      --line:rgba(255,255,255,.10);
+      --text:#e5eefc;
+      --muted:#b7c4d9;
+      --sky:#38bdf8;
+      --sky2:#0ea5e9;
+      --emerald:#34d399;
+      --amber:#fbbf24;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(52,211,153,.10), transparent 25%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    .container{max-width:1120px;margin:0 auto;padding:0 24px}
+    .hero,.section{padding:56px 0}
+    .hero{border-bottom:1px solid var(--line)}
+    .badge{
+      display:inline-block;padding:8px 14px;border-radius:999px;
+      border:1px solid rgba(56,189,248,.25);background:rgba(56,189,248,.10);
+      color:#bfe9ff;font-size:14px
+    }
+    h1{font-size:54px;line-height:1.05;margin:16px 0 10px}
+    h2{font-size:32px;margin:0 0 8px}
+    h3{font-size:22px;margin:0 0 8px}
+    p{margin:0;color:var(--muted)}
+    .hero-grid,.grid-3,.grid-2,.project-grid,.cert-grid{
+      display:grid;gap:24px
+    }
+    .hero-grid{grid-template-columns:1.35fr .85fr;align-items:center}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+    .project-grid{grid-template-columns:repeat(3,1fr)}
+    .cert-grid{grid-template-columns:repeat(2,1fr)}
+    .card{
+      background:var(--panel);border:1px solid var(--line);
+      border-radius:24px;padding:24px
+    }
+    .profile-wrap{
+      border-radius:28px;padding:14px;background:linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border:1px solid var(--line)
+    }
+    .profile-img{width:100%;max-width:320px;border-radius:24px;display:block;object-fit:cover}
+    .cta-row,.tag-row{display:flex;flex-wrap:wrap;gap:12px}
+    .cta-row{margin-top:28px}
+    .btn{
+      display:inline-block;padding:13px 18px;border-radius:16px;text-decoration:none;
+      color:white;font-weight:600;border:1px solid var(--line)
+    }
+    .btn-primary{background:linear-gradient(135deg,var(--sky),var(--sky2));border:none}
+    .btn-secondary{background:rgba(255,255,255,.05)}
+    .mini-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
+    .mini{padding:14px;border-radius:16px;background:rgba(0,0,0,.18);border:1px solid var(--line)}
+    .mini strong{display:block;font-size:22px;color:#fff}
+    .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#b4ecff;margin-bottom:10px}
+    .tag{
+      display:inline-block;padding:7px 12px;border-radius:999px;
+      background:rgba(56,189,248,.10);border:1px solid rgba(56,189,248,.20);color:#d6f3ff;font-size:14px
+    }
+    .subtag{
+      display:inline-block;padding:6px 11px;border-radius:999px;
+      background:rgba(0,0,0,.20);border:1px solid var(--line);color:#d8dfec;font-size:12px
+    }
+    .project-category{
+      display:inline-block;padding:6px 11px;border-radius:999px;font-size:12px;
+      text-transform:uppercase;letter-spacing:.08em;color:#d5fff3;
+      background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.20)
+    }
+    .project-card .btn{margin-top:18px}
+    .role-rotator{
+      height:32px; overflow:hidden; color:#aee6ff; font-weight:700; margin:8px 0 16px;
+    }
+    .role-rotator span{
+      display:block; animation: rotateRoles 10s infinite;
+    }
+    @keyframes rotateRoles {
+      0%,20% { transform: translateY(0); }
+      25%,45% { transform: translateY(-32px); }
+      50%,70% { transform: translateY(-64px); }
+      75%,95% { transform: translateY(-96px); }
+      100% { transform: translateY(0); }
+    }
+    .footer{padding:24px 0 56px;color:#90a3bf;font-size:14px}
+    @media (max-width: 960px){
+      .hero-grid,.grid-3,.grid-2,.project-grid,.cert-grid{grid-template-columns:1fr}
+      h1{font-size:40px}
+      h2{font-size:28px}
+    }
+  </style>
 </head>
-<body style="font-family:Arial;text-align:center;background:#0f172a;color:white;">
-<h1>Sachin Jat</h1>
-<p>Computer Engineering Graduate | Embedded Systems | IT Support</p>
-<img src="profile.jpg" width="200" style="border-radius:50%">
-<p>Email: sachinjat052002@gmail.com</p>
-<p><a href="https://github.com/sachinjat" style="color:cyan;">GitHub</a></p>
+<body>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge">Toronto, ON · Engineering Portfolio</div>
+        <h1>Sachin Jat</h1>
+        <div class="role-rotator">
+          <span>Computer Engineering Graduate</span>
+          <span>Embedded Systems Builder</span>
+          <span>Hardware & IT Support Focused</span>
+          <span>Arduino Projects & Technical Documentation</span>
+        </div>
+        <p style="font-size:20px;max-width:720px">
+          Computer Engineering graduate focused on embedded systems, hardware troubleshooting, and IT support.
+          I build practical projects with Arduino, electronics, and real-world debugging workflows.
+        </p>
+        <div class="tag-row" style="margin-top:18px">
+          <span class="tag">Arduino</span>
+          <span class="tag">C++</span>
+          <span class="tag">Embedded Systems</span>
+          <span class="tag">Hardware Debugging</span>
+          <span class="tag">IT Support</span>
+          <span class="tag">Networking</span>
+          <span class="tag">Cybersecurity</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:sachinjat052002@gmail.com">Contact Me</a>
+          <a class="btn btn-secondary" href="https://github.com/sachinjat" target="_blank">GitHub</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/sachinjat" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+      <div class="profile-wrap">
+        <img src="profile.jpg" alt="Sachin Jat" class="profile-img" />
+        <div class="mini-stats">
+          <div class="mini"><strong>3+</strong>Core portfolio projects</div>
+          <div class="mini"><strong>7</strong>Technical certifications</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-3">
+      <div class="card">
+        <h3>About Me</h3>
+        <p>I am a Computer Engineering graduate from Sheridan College with hands-on experience in Arduino, electronics, hardware debugging, and technical support.</p>
+      </div>
+      <div class="card">
+        <h3>Career Goal</h3>
+        <p>Seeking entry-level opportunities in embedded systems, hardware technician, or IT support roles where I can contribute practical technical skills and keep growing.</p>
+      </div>
+      <div class="card">
+        <h3>Education</h3>
+        <p>Diploma in Computer Engineering<br>Sheridan College, Brampton, ON<br>Graduated: August 2025</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Technical Profile</div>
+      <h2>Skills & Strengths</h2>
+      <div class="grid-2" style="margin-top:24px">
+        <div class="card">
+          <h3>Programming</h3>
+          <div class="tag-row" style="margin-top:14px">
+            <span class="tag">C</span><span class="tag">C++</span><span class="tag">Python</span><span class="tag">Java</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Embedded Systems</h3>
+          <div class="tag-row" style="margin-top:14px">
+            <span class="tag">Arduino</span><span class="tag">Microcontrollers</span><span class="tag">ADC</span><span class="tag">Sensors & Actuators</span><span class="tag">Real-Time Systems</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Hardware</h3>
+          <div class="tag-row" style="margin-top:14px">
+            <span class="tag">Circuit Design</span><span class="tag">Soldering</span><span class="tag">PCB Assembly</span><span class="tag">Hardware Debugging</span><span class="tag">Multimeter</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>IT & Networking</h3>
+          <div class="tag-row" style="margin-top:14px">
+            <span class="tag">Technical Support</span><span class="tag">Windows OS</span><span class="tag">Networking Fundamentals</span><span class="tag">System Troubleshooting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow" style="color:#bbf7d0">Portfolio</div>
+      <h2>Featured Projects</h2>
+      <div class="project-grid" style="margin-top:24px">
+        <div class="card project-card">
+          <div class="project-category">Embedded Systems</div>
+          <h3 style="margin-top:12px">Arduino Digital Multimeter Prototype</h3>
+          <p>Designed and implemented an Arduino-based voltage measurement system using ADC, embedded C/C++, calibration, and testing for accurate readings.</p>
+          <div class="tag-row" style="margin-top:14px">
+            <span class="subtag">ADC</span><span class="subtag">Calibration</span><span class="subtag">Circuit Testing</span><span class="subtag">Embedded C/C++</span>
+          </div>
+          <a class="btn btn-secondary" href="https://github.com/sachinjat/arduino-digital-multimeter" target="_blank">View Repository</a>
+        </div>
+
+        <div class="card project-card">
+          <div class="project-category">Robotics</div>
+          <h3 style="margin-top:12px">Obstacle Avoidance Robot</h3>
+          <p>Built an Arduino-based robot using ultrasonic sensing and motor-driver logic for autonomous obstacle detection and movement control.</p>
+          <div class="tag-row" style="margin-top:14px">
+            <span class="subtag">Ultrasonic Sensor</span><span class="subtag">Motor Control</span><span class="subtag">Autonomous Logic</span><span class="subtag">Debugging</span>
+          </div>
+          <a class="btn btn-secondary" href="https://github.com/sachinjat/arduino-obstacle-avoidance-robot" target="_blank">View Repository</a>
+        </div>
+
+        <div class="card project-card">
+          <div class="project-category">Technical Documentation</div>
+          <h3 style="margin-top:12px">Java OOP Complete Study Guide</h3>
+          <p>Created structured study guides covering Java fundamentals and advanced OOP concepts including inheritance, polymorphism, multithreading, streams, and functional programming.</p>
+          <div class="tag-row" style="margin-top:14px">
+            <span class="subtag">Java</span><span class="subtag">OOP</span><span class="subtag">Documentation</span><span class="subtag">Conceptual Depth</span>
+          </div>
+          <a class="btn btn-secondary" href="https://github.com/sachinjat/java-oop-complete-guide" target="_blank">View Repository</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow" style="color:#fde68a">Experience</div>
+      <h2>Leadership & Technical Support</h2>
+      <div class="grid-2" style="margin-top:24px">
+        <div class="card">
+          <h3>Front Manager</h3>
+          <p style="color:#fde68a;margin-bottom:12px">Doaba Sweets & Restaurant</p>
+          <p>Managed daily operations and supervised a team of 20 staff members. Maintained 100% accuracy in POS transactions and provided troubleshooting support for POS systems and basic IT issues.</p>
+        </div>
+        <div class="card">
+          <h3>Volunteer Club Coordinator</h3>
+          <p style="color:#fde68a;margin-bottom:12px">Aeronautical Club, Sheridan College</p>
+          <p>Coordinated technical workshops, engineering-related student activities, schedules, logistics, and team collaboration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <div class="grid-2">
+        <div>
+          <div class="eyebrow" style="color:#ddd6fe">Certifications</div>
+          <h2>Technical Credentials</h2>
+          <p style="margin-top:12px">A focused certification path in hardware, IT support, cybersecurity, networking, and IT service management.</p>
+        </div>
+        <div class="cert-grid">
+          <div class="mini">CompTIA A+ Core 1 (220-1201) Cert Prep</div>
+          <div class="mini">CompTIA A+ Core 2 (220-1202) Cert Prep</div>
+          <div class="mini">ISC2 Certified in Cybersecurity (CC) Cert Prep</div>
+          <div class="mini">Computer Components and Peripherals for IT Technicians</div>
+          <div class="mini">Windows 10: Networking</div>
+          <div class="mini">Cloud and Virtualization for IT Support Professionals</div>
+          <div class="mini">ITIL 4 Foundation Concepts</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card">
+      <div class="grid-2">
+        <div>
+          <div class="eyebrow">Let's Connect</div>
+          <h2>Open to technical opportunities</h2>
+          <p style="margin-top:12px">I’m currently seeking roles in embedded systems, hardware support, and IT support where I can contribute, learn quickly, and grow through practical engineering work.</p>
+          <div class="tag-row" style="margin-top:16px">
+            <span class="subtag">Embedded Systems</span>
+            <span class="subtag">Hardware Technician</span>
+            <span class="subtag">IT Support</span>
+          </div>
+        </div>
+        <div class="cta-row" style="align-items:flex-start">
+          <a class="btn btn-primary" href="mailto:sachinjat052002@gmail.com">Email Me</a>
+          <a class="btn btn-secondary" href="https://github.com/sachinjat" target="_blank">Visit GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container footer">
+    © 2026 Sachin Jat · Portfolio Website
+  </div>
 </body>
 </html>
-<!-- update -->
