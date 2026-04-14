@@ -20,6 +20,7 @@
       --amber:#fbbf24;
       --violet:#a78bfa;
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
@@ -32,85 +33,232 @@
         linear-gradient(180deg, var(--bg), var(--bg2));
       line-height:1.65;
     }
+
     a{text-decoration:none;color:inherit}
     .container{max-width:1140px;margin:0 auto;padding:0 24px}
+
     .nav{
-      position:sticky;top:0;z-index:10;
+      position:sticky;
+      top:0;
+      z-index:1000;
       backdrop-filter:blur(12px);
-      background:rgba(2,6,23,.72);
+      background:rgba(2,6,23,.75);
       border-bottom:1px solid var(--line);
     }
+
     .nav-inner{
-      display:flex;align-items:center;justify-content:space-between;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
       padding:14px 0;
     }
-    .brand{font-weight:800;letter-spacing:.02em}
-    .nav-links{display:flex;gap:18px;flex-wrap:wrap}
-    .nav-links a{color:var(--muted);font-size:14px}
-    .nav-links a:hover{color:#fff}
-    .hero,.section{padding:64px 0}
-    .hero{padding-top:72px;border-bottom:1px solid var(--line)}
-    .hero-grid,.grid-2,.grid-3,.project-grid,.cert-grid{
-      display:grid;gap:24px
+
+    .brand{
+      font-weight:800;
+      letter-spacing:.02em;
+      font-size:20px;
     }
+
+    .nav-links{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:var(--muted);
+      font-size:14px;
+      transition:.2s ease;
+    }
+
+    .nav-links a:hover{color:#fff}
+
+    .hero,.section{padding:64px 0}
+    .hero{
+      padding-top:72px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .hero-grid,.grid-2,.grid-3,.project-grid,.cert-grid{
+      display:grid;
+      gap:24px;
+    }
+
     .hero-grid{grid-template-columns:1.3fr .8fr;align-items:center}
     .grid-2{grid-template-columns:repeat(2,1fr)}
     .grid-3{grid-template-columns:repeat(3,1fr)}
     .project-grid{grid-template-columns:repeat(3,1fr)}
     .cert-grid{grid-template-columns:repeat(2,1fr)}
+
     .badge{
-      display:inline-block;padding:8px 14px;border-radius:999px;
-      border:1px solid rgba(56,189,248,.25);background:rgba(56,189,248,.10);
-      color:#bfe9ff;font-size:14px
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px solid rgba(56,189,248,.25);
+      background:rgba(56,189,248,.10);
+      color:#bfe9ff;
+      font-size:14px;
     }
-    h1{font-size:58px;line-height:1.02;margin:16px 0 10px}
-    h2{font-size:34px;margin:0 0 8px}
-    h3{font-size:22px;margin:0 0 8px}
+
+    h1{
+      font-size:58px;
+      line-height:1.02;
+      margin:16px 0 10px;
+    }
+
+    h2{
+      font-size:34px;
+      margin:0 0 8px;
+      position:relative;
+      display:inline-block;
+      padding-bottom:8px;
+    }
+
+    h2::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:72%;
+      height:3px;
+      border-radius:999px;
+      background:linear-gradient(90deg, var(--sky), var(--emerald));
+    }
+
+    h3{
+      font-size:22px;
+      margin:0 0 8px;
+    }
+
     p{margin:0;color:var(--muted)}
-    .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#b4ecff;margin-bottom:10px}
-    .lead{font-size:20px;max-width:760px}
+
+    .eyebrow{
+      font-size:12px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:#b4ecff;
+      margin-bottom:10px;
+    }
+
+    .lead{
+      font-size:20px;
+      max-width:760px;
+    }
+
     .card{
       background:linear-gradient(180deg,var(--panel),var(--panel2));
       border:1px solid var(--line);
-      border-radius:24px;padding:24px;
+      border-radius:24px;
+      padding:24px;
       box-shadow:0 20px 40px rgba(0,0,0,.18);
+      transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
     }
+
+    .card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 24px 50px rgba(0,0,0,.28);
+      border-color:rgba(56,189,248,.28);
+    }
+
     .profile-wrap{
-      border-radius:28px;padding:14px;
+      border-radius:28px;
+      padding:14px;
       background:linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-      border:1px solid var(--line)
+      border:1px solid var(--line);
     }
+
     .profile-img{
-      width:100%;max-width:330px;border-radius:24px;display:block;object-fit:cover
+      width:100%;
+      max-width:330px;
+      border-radius:24px;
+      display:block;
+      object-fit:cover;
     }
-    .mini-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
-    .mini{padding:14px;border-radius:16px;background:rgba(0,0,0,.18);border:1px solid var(--line)}
-    .mini strong{display:block;font-size:22px;color:#fff}
-    .tag-row,.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+
+    .mini-stats{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+      margin-top:16px;
+    }
+
+    .mini{
+      padding:14px;
+      border-radius:16px;
+      background:rgba(0,0,0,.18);
+      border:1px solid var(--line);
+    }
+
+    .mini strong{
+      display:block;
+      font-size:22px;
+      color:#fff;
+    }
+
+    .tag-row,.cta-row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
     .tag{
-      display:inline-block;padding:7px 12px;border-radius:999px;
-      background:rgba(56,189,248,.10);border:1px solid rgba(56,189,248,.20);
-      color:#d6f3ff;font-size:14px
+      display:inline-block;
+      padding:7px 12px;
+      border-radius:999px;
+      background:rgba(56,189,248,.10);
+      border:1px solid rgba(56,189,248,.20);
+      color:#d6f3ff;
+      font-size:14px;
     }
+
     .subtag{
-      display:inline-block;padding:6px 11px;border-radius:999px;
-      background:rgba(0,0,0,.20);border:1px solid var(--line);color:#d8dfec;font-size:12px
+      display:inline-block;
+      padding:6px 11px;
+      border-radius:999px;
+      background:rgba(0,0,0,.20);
+      border:1px solid var(--line);
+      color:#d8dfec;
+      font-size:12px;
     }
+
     .btn{
-      display:inline-block;padding:13px 18px;border-radius:16px;
-      color:white;font-weight:700;border:1px solid var(--line);
+      display:inline-block;
+      padding:13px 18px;
+      border-radius:16px;
+      color:white;
+      font-weight:700;
+      border:1px solid var(--line);
       transition:transform .2s ease, background .2s ease, border-color .2s ease;
+      cursor:pointer;
     }
+
     .btn:hover{transform:translateY(-2px)}
-    .btn-primary{background:linear-gradient(135deg,var(--sky),var(--sky2));border:none}
-    .btn-secondary{background:rgba(255,255,255,.05)}
-    .btn-secondary:hover{background:rgba(255,255,255,.09)}
+    .btn-primary{
+      background:linear-gradient(135deg,var(--sky),var(--sky2));
+      border:none;
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,.05);
+    }
+
+    .btn-secondary:hover{
+      background:rgba(255,255,255,.09);
+    }
+
     .role-rotator{
-      height:34px;overflow:hidden;color:#aee6ff;font-weight:800;margin:8px 0 16px;
+      height:34px;
+      overflow:hidden;
+      color:#aee6ff;
+      font-weight:800;
+      margin:8px 0 16px;
     }
+
     .role-rotator span{
-      display:block;animation:rotateRoles 11s infinite;
+      display:block;
+      animation:rotateRoles 11s infinite;
     }
+
     @keyframes rotateRoles{
       0%,20%{transform:translateY(0)}
       25%,45%{transform:translateY(-34px)}
@@ -118,33 +266,157 @@
       75%,95%{transform:translateY(-102px)}
       100%{transform:translateY(0)}
     }
+
     .project-category{
-      display:inline-block;padding:6px 11px;border-radius:999px;font-size:12px;
-      text-transform:uppercase;letter-spacing:.08em;color:#d5fff3;
-      background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.20)
+      display:inline-block;
+      padding:6px 11px;
+      border-radius:999px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:#d5fff3;
+      background:rgba(52,211,153,.10);
+      border:1px solid rgba(52,211,153,.20);
     }
-    .resume-note{font-size:13px;margin-top:10px;color:#9fb3d1}
-    .contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px}
+
+    .resume-note{
+      font-size:13px;
+      margin-top:10px;
+      color:#9fb3d1;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:24px;
+    }
+
     .contact-box{
-      padding:18px;border-radius:18px;background:rgba(0,0,0,.18);border:1px solid var(--line)
+      padding:18px;
+      border-radius:18px;
+      background:rgba(0,0,0,.18);
+      border:1px solid var(--line);
     }
+
     .input-like{
-      display:block;width:100%;padding:14px 16px;border-radius:14px;
-      background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--text);
-      margin-bottom:12px
+      display:block;
+      width:100%;
+      padding:14px 16px;
+      border-radius:14px;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      color:var(--text);
+      margin-bottom:12px;
     }
-    .footer{padding:26px 0 56px;color:#90a3bf;font-size:14px}
+
+    .footer{
+      padding:26px 0 56px;
+      color:#90a3bf;
+      font-size:14px;
+    }
+
     .reveal{
-      opacity:0;transform:translateY(18px);transition:all .6s ease;
+      opacity:0;
+      transform:translateY(18px);
+      transition:all .6s ease;
     }
+
     .reveal.visible{
-      opacity:1;transform:translateY(0);
+      opacity:1;
+      transform:translateY(0);
     }
+
+    .project-media{
+      position:relative;
+      margin-top:14px;
+    }
+
+    .project-img{
+      display:none;
+      width:100%;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.08);
+      cursor:pointer;
+    }
+
+    .project-img.active{
+      display:block;
+    }
+
+    .project-controls{
+      display:flex;
+      gap:10px;
+      margin-top:10px;
+      flex-wrap:wrap;
+    }
+
+    .project-controls button{
+      background:rgba(255,255,255,.08);
+      color:white;
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:12px;
+      padding:8px 14px;
+      cursor:pointer;
+    }
+
+    .project-controls button:hover{
+      background:rgba(255,255,255,.14);
+    }
+
+    .view-demo-btn{
+      display:inline-block;
+      margin-top:10px;
+      padding:10px 14px;
+      border-radius:12px;
+      background:rgba(56,189,248,.14);
+      border:1px solid rgba(56,189,248,.25);
+      color:#d6f3ff;
+      font-weight:600;
+    }
+
+    .popup{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.82);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:9999;
+      padding:20px;
+    }
+
+    .popup img{
+      max-width:95%;
+      max-height:90vh;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:0 30px 60px rgba(0,0,0,.35);
+    }
+
+    .popup.active{
+      display:flex;
+    }
+
+    .popup-close{
+      position:absolute;
+      top:20px;
+      right:24px;
+      font-size:34px;
+      color:white;
+      cursor:pointer;
+    }
+
     @media (max-width: 960px){
       h1{font-size:42px}
       h2{font-size:28px}
-      .hero-grid,.grid-2,.grid-3,.project-grid,.cert-grid,.contact-grid{grid-template-columns:1fr}
-      .nav-inner{align-items:flex-start;gap:12px;flex-direction:column}
+      .hero-grid,.grid-2,.grid-3,.project-grid,.cert-grid,.contact-grid{
+        grid-template-columns:1fr;
+      }
+      .nav-inner{
+        align-items:flex-start;
+        gap:12px;
+        flex-direction:column;
+      }
     }
   </style>
 </head>
@@ -158,6 +430,7 @@
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#certifications">Certifications</a>
+        <a href="#github">GitHub</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -263,7 +536,18 @@
         <div class="card reveal">
           <div class="project-category">Embedded Systems</div>
           <h3 style="margin-top:12px">⚡ Arduino Digital Multimeter Prototype</h3>
-          <p>Designed and implemented an Arduino-based voltage measurement system using ADC, embedded C/C++, calibration, and testing for accurate readings.</p>
+
+          <div class="project-media">
+            <img src="multimeter1.jpg" alt="Multimeter screenshot 1" class="project-img active" onclick="openPopup(this.src)">
+            <img src="multimeter2.jpg" alt="Multimeter screenshot 2" class="project-img" onclick="openPopup(this.src)">
+            <div class="project-controls">
+              <button onclick="prevSlide(this)">‹ Prev</button>
+              <button onclick="nextSlide(this)">Next ›</button>
+            </div>
+            <a href="multimeter1.jpg" target="_blank" class="view-demo-btn">View Demo</a>
+          </div>
+
+          <p style="margin-top:14px">Designed and implemented an Arduino-based voltage measurement system using ADC, embedded C/C++, calibration, and testing for accurate readings.</p>
           <div class="tag-row" style="margin-top:14px">
             <span class="subtag">ADC</span><span class="subtag">Calibration</span><span class="subtag">Circuit Testing</span><span class="subtag">Embedded C/C++</span>
           </div>
@@ -275,7 +559,18 @@
         <div class="card reveal">
           <div class="project-category">Robotics</div>
           <h3 style="margin-top:12px">🤖 Obstacle Avoidance Robot</h3>
-          <p>Built an Arduino-based robot using ultrasonic sensing and motor-driver logic for autonomous obstacle detection and movement control.</p>
+
+          <div class="project-media">
+            <img src="robot1.jpg" alt="Robot screenshot 1" class="project-img active" onclick="openPopup(this.src)">
+            <img src="robot2.jpg" alt="Robot screenshot 2" class="project-img" onclick="openPopup(this.src)">
+            <div class="project-controls">
+              <button onclick="prevSlide(this)">‹ Prev</button>
+              <button onclick="nextSlide(this)">Next ›</button>
+            </div>
+            <a href="robot1.jpg" target="_blank" class="view-demo-btn">View Demo</a>
+          </div>
+
+          <p style="margin-top:14px">Built an Arduino-based robot using ultrasonic sensing and motor-driver logic for autonomous obstacle detection and movement control.</p>
           <div class="tag-row" style="margin-top:14px">
             <span class="subtag">Ultrasonic Sensor</span><span class="subtag">Motor Control</span><span class="subtag">Autonomous Logic</span><span class="subtag">Debugging</span>
           </div>
@@ -287,7 +582,18 @@
         <div class="card reveal">
           <div class="project-category">Technical Documentation</div>
           <h3 style="margin-top:12px">📘 Java OOP Complete Study Guide</h3>
-          <p>Created structured study guides covering Java fundamentals and advanced OOP concepts including inheritance, polymorphism, multithreading, streams, and functional programming.</p>
+
+          <div class="project-media">
+            <img src="java1.jpg" alt="Java guide screenshot 1" class="project-img active" onclick="openPopup(this.src)">
+            <img src="java2.jpg" alt="Java guide screenshot 2" class="project-img" onclick="openPopup(this.src)">
+            <div class="project-controls">
+              <button onclick="prevSlide(this)">‹ Prev</button>
+              <button onclick="nextSlide(this)">Next ›</button>
+            </div>
+            <a href="java1.jpg" target="_blank" class="view-demo-btn">View Demo</a>
+          </div>
+
+          <p style="margin-top:14px">Created structured study guides covering Java fundamentals and advanced OOP concepts including inheritance, polymorphism, multithreading, streams, and functional programming.</p>
           <div class="tag-row" style="margin-top:14px">
             <span class="subtag">Java</span><span class="subtag">OOP</span><span class="subtag">Documentation</span><span class="subtag">Conceptual Depth</span>
           </div>
@@ -339,6 +645,29 @@
     </div>
   </section>
 
+  <section id="github" class="section">
+    <div class="container">
+      <div class="eyebrow">GitHub</div>
+      <h2>Development Activity</h2>
+      <div class="grid-2" style="margin-top:24px">
+        <div class="card reveal">
+          <img
+            src="https://github-readme-stats.vercel.app/api?username=sachinjat&show_icons=true&theme=tokyonight"
+            alt="GitHub stats"
+            style="width:100%; border-radius:16px;"
+          />
+        </div>
+        <div class="card reveal">
+          <img
+            src="https://github-readme-stats.vercel.app/api/top-langs/?username=sachinjat&layout=compact&theme=tokyonight"
+            alt="Top languages"
+            style="width:100%; border-radius:16px;"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="contact" class="section">
     <div class="container card reveal">
       <div class="contact-grid">
@@ -370,13 +699,52 @@
     © 2026 Sachin Jat · Portfolio Website
   </div>
 
+  <div class="popup" id="popup">
+    <span class="popup-close" onclick="closePopup()">&times;</span>
+    <img id="popupImage" src="" alt="Preview">
+  </div>
+
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.12 });
+
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    function nextSlide(button){
+      const media = button.closest('.project-media');
+      const slides = media.querySelectorAll('.project-img');
+      let activeIndex = [...slides].findIndex(img => img.classList.contains('active'));
+      slides[activeIndex].classList.remove('active');
+      activeIndex = (activeIndex + 1) % slides.length;
+      slides[activeIndex].classList.add('active');
+    }
+
+    function prevSlide(button){
+      const media = button.closest('.project-media');
+      const slides = media.querySelectorAll('.project-img');
+      let activeIndex = [...slides].findIndex(img => img.classList.contains('active'));
+      slides[activeIndex].classList.remove('active');
+      activeIndex = (activeIndex - 1 + slides.length) % slides.length;
+      slides[activeIndex].classList.add('active');
+    }
+
+    function openPopup(src){
+      document.getElementById('popupImage').src = src;
+      document.getElementById('popup').classList.add('active');
+    }
+
+    function closePopup(){
+      document.getElementById('popup').classList.remove('active');
+    }
+
+    document.getElementById('popup').addEventListener('click', function(e){
+      if(e.target.id === 'popup'){
+        closePopup();
+      }
+    });
   </script>
 </body>
 </html>
