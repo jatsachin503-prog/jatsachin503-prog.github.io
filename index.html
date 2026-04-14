@@ -4,423 +4,583 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sachin Jat | Embedded Systems Portfolio</title>
-  <meta name="description" content="Sachin Jat portfolio website showcasing embedded systems, robotics, hardware troubleshooting, and IT support projects." />
+  <meta
+    name="description"
+    content="Sachin Jat portfolio website showcasing embedded systems, robotics, hardware troubleshooting, and IT support projects."
+  />
   <style>
-    :root{
-      --bg:#020617;
-      --bg2:#0b1220;
-      --panel:rgba(255,255,255,.06);
-      --panel2:rgba(255,255,255,.04);
-      --line:rgba(255,255,255,.10);
-      --text:#e5eefc;
-      --muted:#b7c4d9;
-      --sky:#38bdf8;
-      --sky2:#0ea5e9;
-      --emerald:#34d399;
-      --amber:#fbbf24;
-      --violet:#a78bfa;
+    :root {
+      --bg: #020617;
+      --bg2: #0b1220;
+      --panel: rgba(255, 255, 255, 0.06);
+      --panel2: rgba(255, 255, 255, 0.04);
+      --line: rgba(255, 255, 255, 0.1);
+      --text: #e5eefc;
+      --muted: #b7c4d9;
+      --sky: #38bdf8;
+      --sky2: #0ea5e9;
+      --emerald: #34d399;
+      --amber: #fbbf24;
+      --violet: #a78bfa;
+      --shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+      --radius: 24px;
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:Inter,Segoe UI,Arial,sans-serif;
-      color:var(--text);
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, Segoe UI, Arial, sans-serif;
+      color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(56,189,248,.18), transparent 30%),
-        radial-gradient(circle at top right, rgba(52,211,153,.10), transparent 25%),
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(52, 211, 153, 0.09), transparent 24%),
         linear-gradient(180deg, var(--bg), var(--bg2));
-      line-height:1.65;
+      line-height: 1.65;
+      overflow-x: hidden;
     }
 
-    a{text-decoration:none;color:inherit}
-    .container{max-width:1140px;margin:0 auto;padding:0 24px}
-
-    .nav{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      backdrop-filter:blur(12px);
-      background:rgba(2,6,23,.75);
-      border-bottom:1px solid var(--line);
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .nav-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:14px 0;
+    img {
+      max-width: 100%;
+      display: block;
     }
 
-    .brand{
-      font-weight:800;
-      letter-spacing:.02em;
-      font-size:20px;
+    .bg-orb {
+      position: fixed;
+      border-radius: 999px;
+      filter: blur(95px);
+      opacity: 0.18;
+      z-index: -1;
+      animation: floatOrb 14s ease-in-out infinite;
+      pointer-events: none;
     }
 
-    .nav-links{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
+    .orb-1 {
+      width: 290px;
+      height: 290px;
+      background: var(--sky);
+      top: 70px;
+      left: -80px;
     }
 
-    .nav-links a{
-      color:var(--muted);
-      font-size:14px;
-      transition:.2s ease;
+    .orb-2 {
+      width: 340px;
+      height: 340px;
+      background: var(--emerald);
+      top: 260px;
+      right: -100px;
+      animation-delay: 2.5s;
     }
 
-    .nav-links a:hover{color:#fff}
-
-    .hero,.section{padding:64px 0}
-    .hero{
-      padding-top:72px;
-      border-bottom:1px solid var(--line);
+    .orb-3 {
+      width: 230px;
+      height: 230px;
+      background: var(--violet);
+      bottom: 70px;
+      left: 35%;
+      animation-delay: 5s;
     }
 
-    .hero-grid,.grid-2,.grid-3,.project-grid,.cert-grid{
-      display:grid;
-      gap:24px;
+    @keyframes floatOrb {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-22px) translateX(18px); }
     }
 
-    .hero-grid{grid-template-columns:1.3fr .8fr;align-items:center}
-    .grid-2{grid-template-columns:repeat(2,1fr)}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .project-grid{grid-template-columns:repeat(3,1fr)}
-    .cert-grid{grid-template-columns:repeat(2,1fr)}
-
-    .badge{
-      display:inline-block;
-      padding:8px 14px;
-      border-radius:999px;
-      border:1px solid rgba(56,189,248,.25);
-      background:rgba(56,189,248,.10);
-      color:#bfe9ff;
-      font-size:14px;
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
     }
 
-    h1{
-      font-size:58px;
-      line-height:1.02;
-      margin:16px 0 10px;
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(14px);
+      background: rgba(2, 6, 23, 0.76);
+      border-bottom: 1px solid var(--line);
     }
 
-    h2{
-      font-size:34px;
-      margin:0 0 8px;
-      position:relative;
-      display:inline-block;
-      padding-bottom:8px;
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 16px;
     }
 
-    h2::after{
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:0;
-      width:72%;
-      height:3px;
-      border-radius:999px;
-      background:linear-gradient(90deg, var(--sky), var(--emerald));
+    .brand {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
     }
 
-    h3{
-      font-size:22px;
-      margin:0 0 8px;
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
     }
 
-    p{margin:0;color:var(--muted)}
-
-    .eyebrow{
-      font-size:12px;
-      letter-spacing:.22em;
-      text-transform:uppercase;
-      color:#b4ecff;
-      margin-bottom:10px;
+    .nav-links a {
+      position: relative;
+      color: var(--muted);
+      font-size: 14px;
+      transition: color 0.2s ease;
     }
 
-    .lead{
-      font-size:20px;
-      max-width:760px;
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--sky), var(--emerald));
+      transition: width 0.25s ease;
     }
 
-    .card{
-      background:linear-gradient(180deg,var(--panel),var(--panel2));
-      border:1px solid var(--line);
-      border-radius:24px;
-      padding:24px;
-      box-shadow:0 20px 40px rgba(0,0,0,.18);
-      transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+    .nav-links a:hover {
+      color: #fff;
     }
 
-    .card:hover{
-      transform:translateY(-8px);
-      box-shadow:0 24px 50px rgba(0,0,0,.28);
-      border-color:rgba(56,189,248,.28);
+    .nav-links a:hover::after {
+      width: 100%;
     }
 
-    .profile-wrap{
-      border-radius:28px;
-      padding:14px;
-      background:linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-      border:1px solid var(--line);
+    .hero,
+    .section {
+      padding: 68px 0;
     }
 
-    .profile-img{
-      width:100%;
-      max-width:330px;
-      border-radius:24px;
-      display:block;
-      object-fit:cover;
+    .hero {
+      padding-top: 76px;
+      border-bottom: 1px solid var(--line);
     }
 
-    .mini-stats{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:12px;
-      margin-top:16px;
+    .hero-grid,
+    .grid-2,
+    .grid-3,
+    .project-grid,
+    .cert-grid,
+    .contact-grid {
+      display: grid;
+      gap: 24px;
     }
 
-    .mini{
-      padding:14px;
-      border-radius:16px;
-      background:rgba(0,0,0,.18);
-      border:1px solid var(--line);
+    .hero-grid {
+      grid-template-columns: 1.3fr 0.8fr;
+      align-items: center;
     }
 
-    .mini strong{
-      display:block;
-      font-size:22px;
-      color:#fff;
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
     }
 
-    .tag-row,.cta-row{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
+    .grid-3,
+    .project-grid {
+      grid-template-columns: repeat(3, 1fr);
     }
 
-    .tag{
-      display:inline-block;
-      padding:7px 12px;
-      border-radius:999px;
-      background:rgba(56,189,248,.10);
-      border:1px solid rgba(56,189,248,.20);
-      color:#d6f3ff;
-      font-size:14px;
+    .cert-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
 
-    .subtag{
-      display:inline-block;
-      padding:6px 11px;
-      border-radius:999px;
-      background:rgba(0,0,0,.20);
-      border:1px solid var(--line);
-      color:#d8dfec;
-      font-size:12px;
+    .contact-grid {
+      grid-template-columns: 1.2fr 0.8fr;
     }
 
-    .btn{
-      display:inline-block;
-      padding:13px 18px;
-      border-radius:16px;
-      color:white;
-      font-weight:700;
-      border:1px solid var(--line);
-      transition:transform .2s ease, background .2s ease, border-color .2s ease;
-      cursor:pointer;
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      background: rgba(56, 189, 248, 0.1);
+      color: #bfe9ff;
+      font-size: 14px;
     }
 
-    .btn:hover{transform:translateY(-2px)}
-    .btn-primary{
-      background:linear-gradient(135deg,var(--sky),var(--sky2));
-      border:none;
+    h1 {
+      font-size: 58px;
+      line-height: 1.02;
+      margin: 16px 0 10px;
     }
 
-    .btn-secondary{
-      background:rgba(255,255,255,.05);
+    h2 {
+      font-size: 34px;
+      margin: 0 0 8px;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 8px;
     }
 
-    .btn-secondary:hover{
-      background:rgba(255,255,255,.09);
+    h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 72%;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--sky), var(--emerald));
     }
 
-    .role-rotator{
-      height:34px;
-      overflow:hidden;
-      color:#aee6ff;
-      font-weight:800;
-      margin:8px 0 16px;
+    h3 {
+      font-size: 22px;
+      margin: 0 0 8px;
     }
 
-    .role-rotator span{
-      display:block;
-      animation:rotateRoles 11s infinite;
+    h4 {
+      font-size: 18px;
+      margin: 0 0 10px;
+      color: #fff;
     }
 
-    @keyframes rotateRoles{
-      0%,20%{transform:translateY(0)}
-      25%,45%{transform:translateY(-34px)}
-      50%,70%{transform:translateY(-68px)}
-      75%,95%{transform:translateY(-102px)}
-      100%{transform:translateY(0)}
+    p {
+      margin: 0;
+      color: var(--muted);
     }
 
-    .project-category{
-      display:inline-block;
-      padding:6px 11px;
-      border-radius:999px;
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-      color:#d5fff3;
-      background:rgba(52,211,153,.10);
-      border:1px solid rgba(52,211,153,.20);
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #b4ecff;
+      margin-bottom: 10px;
     }
 
-    .resume-note{
-      font-size:13px;
-      margin-top:10px;
-      color:#9fb3d1;
+    .lead {
+      font-size: 20px;
+      max-width: 760px;
     }
 
-    .contact-grid{
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:24px;
+    .card {
+      background: linear-gradient(180deg, var(--panel), var(--panel2));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+      transform-style: preserve-3d;
     }
 
-    .contact-box{
-      padding:18px;
-      border-radius:18px;
-      background:rgba(0,0,0,.18);
-      border:1px solid var(--line);
+    .card:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 26px 56px rgba(0, 0, 0, 0.3);
+      border-color: rgba(56, 189, 248, 0.28);
     }
 
-    .input-like{
-      display:block;
-      width:100%;
-      padding:14px 16px;
-      border-radius:14px;
-      background:rgba(255,255,255,.04);
-      border:1px solid var(--line);
-      color:var(--text);
-      margin-bottom:12px;
+    .profile-wrap {
+      border-radius: 28px;
+      padding: 14px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+      border: 1px solid var(--line);
     }
 
-    .footer{
-      padding:26px 0 56px;
-      color:#90a3bf;
-      font-size:14px;
+    .profile-img {
+      width: 100%;
+      max-width: 330px;
+      border-radius: 24px;
+      object-fit: cover;
     }
 
-    .reveal{
-      opacity:0;
-      transform:translateY(18px);
-      transition:all .6s ease;
+    .mini-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 16px;
     }
 
-    .reveal.visible{
-      opacity:1;
-      transform:translateY(0);
+    .mini {
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.18);
+      border: 1px solid var(--line);
     }
 
-    .project-media{
-      position:relative;
-      margin-top:14px;
+    .mini strong {
+      display: block;
+      font-size: 22px;
+      color: #fff;
     }
 
-    .project-img{
-      display:none;
-      width:100%;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.08);
-      cursor:pointer;
+    .tag-row,
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
-    .project-img.active{
-      display:block;
+    .tag {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      color: #d6f3ff;
+      font-size: 14px;
     }
 
-    .project-controls{
-      display:flex;
-      gap:10px;
-      margin-top:10px;
-      flex-wrap:wrap;
+    .subtag {
+      display: inline-block;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--line);
+      color: #d8dfec;
+      font-size: 12px;
     }
 
-    .project-controls button{
-      background:rgba(255,255,255,.08);
-      color:white;
-      border:1px solid rgba(255,255,255,.1);
-      border-radius:12px;
-      padding:8px 14px;
-      cursor:pointer;
+    .btn {
+      display: inline-block;
+      padding: 13px 18px;
+      border-radius: 16px;
+      color: white;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
     }
 
-    .project-controls button:hover{
-      background:rgba(255,255,255,.14);
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+      transition: left 0.6s ease;
     }
 
-    .view-demo-btn{
-      display:inline-block;
-      margin-top:10px;
-      padding:10px 14px;
-      border-radius:12px;
-      background:rgba(56,189,248,.14);
-      border:1px solid rgba(56,189,248,.25);
-      color:#d6f3ff;
-      font-weight:600;
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.18);
     }
 
-    .popup{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.82);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index:9999;
-      padding:20px;
+    .btn:hover::before {
+      left: 120%;
     }
 
-    .popup img{
-      max-width:95%;
-      max-height:90vh;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.12);
-      box-shadow:0 30px 60px rgba(0,0,0,.35);
+    .btn-primary {
+      background: linear-gradient(135deg, var(--sky), var(--sky2));
+      border: none;
     }
 
-    .popup.active{
-      display:flex;
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
     }
 
-    .popup-close{
-      position:absolute;
-      top:20px;
-      right:24px;
-      font-size:34px;
-      color:white;
-      cursor:pointer;
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.09);
     }
 
-    @media (max-width: 960px){
-      h1{font-size:42px}
-      h2{font-size:28px}
-      .hero-grid,.grid-2,.grid-3,.project-grid,.cert-grid,.contact-grid{
-        grid-template-columns:1fr;
+    .role-rotator {
+      height: 34px;
+      overflow: hidden;
+      color: #aee6ff;
+      font-weight: 800;
+      margin: 8px 0 16px;
+    }
+
+    .role-rotator span {
+      display: block;
+      animation: rotateRoles 11s infinite;
+    }
+
+    @keyframes rotateRoles {
+      0%, 20% { transform: translateY(0); }
+      25%, 45% { transform: translateY(-34px); }
+      50%, 70% { transform: translateY(-68px); }
+      75%, 95% { transform: translateY(-102px); }
+      100% { transform: translateY(0); }
+    }
+
+    .project-category {
+      display: inline-block;
+      padding: 6px 11px;
+      border-radius: 999px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #d5fff3;
+      background: rgba(52, 211, 153, 0.1);
+      border: 1px solid rgba(52, 211, 153, 0.2);
+    }
+
+    .resume-note {
+      font-size: 13px;
+      margin-top: 10px;
+      color: #9fb3d1;
+    }
+
+    .contact-box {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(0, 0, 0, 0.18);
+      border: 1px solid var(--line);
+    }
+
+    .input-like {
+      display: block;
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .footer {
+      padding: 26px 0 56px;
+      color: #90a3bf;
+      font-size: 14px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-media {
+      position: relative;
+      margin-top: 14px;
+    }
+
+    .project-img {
+      display: none;
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+    }
+
+    .project-img.active {
+      display: block;
+    }
+
+    .project-controls {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .project-controls button {
+      background: rgba(255, 255, 255, 0.08);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+
+    .project-controls button:hover {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .view-demo-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: rgba(56, 189, 248, 0.14);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: #d6f3ff;
+      font-weight: 600;
+    }
+
+    .video-frame {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+      margin-top: 14px;
+      background: #000;
+    }
+
+    .popup {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.82);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 20px;
+    }
+
+    .popup img {
+      max-width: 95%;
+      max-height: 90vh;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .popup.active {
+      display: flex;
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-size: 34px;
+      color: white;
+      cursor: pointer;
+    }
+
+    @media (max-width: 960px) {
+      h1 {
+        font-size: 42px;
       }
-      .nav-inner{
-        align-items:flex-start;
-        gap:12px;
-        flex-direction:column;
+
+      h2 {
+        font-size: 28px;
+      }
+
+      .hero-grid,
+      .grid-2,
+      .grid-3,
+      .project-grid,
+      .cert-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-inner {
+        align-items: flex-start;
+        gap: 12px;
+        flex-direction: column;
       }
     }
   </style>
 </head>
 <body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
   <nav class="nav">
     <div class="container nav-inner">
       <div class="brand">Sachin Jat</div>
@@ -451,7 +611,7 @@
           Computer Engineering graduate focused on embedded systems, hardware troubleshooting, and IT support.
           I build practical projects with Arduino, electronics, and real-world debugging workflows.
         </p>
-        <div class="tag-row" style="margin-top:18px">
+        <div class="tag-row" style="margin-top: 18px;">
           <span class="tag">Arduino</span>
           <span class="tag">C++</span>
           <span class="tag">Embedded Systems</span>
@@ -460,7 +620,7 @@
           <span class="tag">Networking</span>
           <span class="tag">Cybersecurity</span>
         </div>
-        <div class="cta-row" style="margin-top:24px">
+        <div class="cta-row" style="margin-top: 24px;">
           <a class="btn btn-primary" href="#contact">Hire Me</a>
           <a class="btn btn-secondary" href="Sachin_Jat_Resume.docx" download>Download Resume</a>
           <a class="btn btn-secondary" href="https://github.com/sachinjat" target="_blank">GitHub</a>
@@ -468,11 +628,12 @@
         </div>
         <p class="resume-note">Resume download uses the file included in this website package.</p>
       </div>
+
       <div class="profile-wrap reveal">
         <img src="profile.jpg" alt="Sachin Jat" class="profile-img" />
         <div class="mini-stats">
-          <div class="mini"><strong>3+</strong>Core portfolio projects</div>
-          <div class="mini"><strong>7</strong>Technical certifications</div>
+          <div class="mini"><strong class="counter" data-target="3">0</strong>Core portfolio projects</div>
+          <div class="mini"><strong class="counter" data-target="7">0</strong>Technical certifications</div>
         </div>
       </div>
     </div>
@@ -490,7 +651,7 @@
       </div>
       <div class="card reveal">
         <h3>Education</h3>
-        <p>Diploma in Computer Engineering<br>Sheridan College, Brampton, ON<br>Graduated: August 2025</p>
+        <p>Diploma in Computer Engineering<br />Sheridan College, Brampton, ON<br />Graduated: August 2025</p>
       </div>
     </div>
   </section>
@@ -499,28 +660,28 @@
     <div class="container">
       <div class="eyebrow">Technical Profile</div>
       <h2>Skills & Strengths</h2>
-      <div class="grid-2" style="margin-top:24px">
+      <div class="grid-2" style="margin-top: 24px;">
         <div class="card reveal">
           <h3>Programming</h3>
-          <div class="tag-row" style="margin-top:14px">
+          <div class="tag-row" style="margin-top: 14px;">
             <span class="tag">C</span><span class="tag">C++</span><span class="tag">Python</span><span class="tag">Java</span>
           </div>
         </div>
         <div class="card reveal">
           <h3>Embedded Systems</h3>
-          <div class="tag-row" style="margin-top:14px">
+          <div class="tag-row" style="margin-top: 14px;">
             <span class="tag">Arduino</span><span class="tag">Microcontrollers</span><span class="tag">ADC</span><span class="tag">Sensors & Actuators</span><span class="tag">Real-Time Systems</span>
           </div>
         </div>
         <div class="card reveal">
           <h3>Hardware</h3>
-          <div class="tag-row" style="margin-top:14px">
+          <div class="tag-row" style="margin-top: 14px;">
             <span class="tag">Circuit Design</span><span class="tag">Soldering</span><span class="tag">PCB Assembly</span><span class="tag">Hardware Debugging</span><span class="tag">Multimeter</span>
           </div>
         </div>
         <div class="card reveal">
           <h3>IT & Networking</h3>
-          <div class="tag-row" style="margin-top:14px">
+          <div class="tag-row" style="margin-top: 14px;">
             <span class="tag">Technical Support</span><span class="tag">Windows OS</span><span class="tag">Networking Fundamentals</span><span class="tag">System Troubleshooting</span>
           </div>
         </div>
@@ -530,75 +691,99 @@
 
   <section id="projects" class="section">
     <div class="container">
-      <div class="eyebrow" style="color:#bbf7d0">Portfolio</div>
+      <div class="eyebrow" style="color: #bbf7d0;">Portfolio</div>
       <h2>Featured Projects</h2>
-      <div class="project-grid" style="margin-top:24px">
+
+      <div class="project-grid" style="margin-top: 24px;">
         <div class="card reveal">
           <div class="project-category">Embedded Systems</div>
-          <h3 style="margin-top:12px">⚡ Arduino Digital Multimeter Prototype</h3>
+          <h3 style="margin-top: 12px;">⚡ Arduino Digital Multimeter Prototype</h3>
 
           <div class="project-media">
-            <img src="multimeter1.jpg" alt="Multimeter screenshot 1" class="project-img active" onclick="openPopup(this.src)">
-            <img src="multimeter2.jpg" alt="Multimeter screenshot 2" class="project-img" onclick="openPopup(this.src)">
+            <img src="mm2.jpeg" alt="Arduino components and embedded system setup" class="project-img active" onclick="openPopup(this.src)" />
+            <img src="MM1.jpeg" alt="Digital multimeter testing output" class="project-img" onclick="openPopup(this.src)" />
             <div class="project-controls">
               <button onclick="prevSlide(this)">‹ Prev</button>
               <button onclick="nextSlide(this)">Next ›</button>
             </div>
-            <a href="multimeter1.jpg" target="_blank" class="view-demo-btn">View Demo</a>
+            <a href="MM1.jpeg" target="_blank" class="view-demo-btn">View Final Output</a>
           </div>
 
-          <p style="margin-top:14px">Designed and implemented an Arduino-based voltage measurement system using ADC, embedded C/C++, calibration, and testing for accurate readings.</p>
-          <div class="tag-row" style="margin-top:14px">
-            <span class="subtag">ADC</span><span class="subtag">Calibration</span><span class="subtag">Circuit Testing</span><span class="subtag">Embedded C/C++</span>
+          <p style="margin-top: 14px;">
+            Designed and implemented an Arduino-based voltage measurement system using ADC and embedded C/C++.
+            Developed and validated the system through real multimeter comparison to improve measurement accuracy.
+          </p>
+
+          <div class="tag-row" style="margin-top: 14px;">
+            <span class="subtag">ADC</span>
+            <span class="subtag">Calibration</span>
+            <span class="subtag">Circuit Testing</span>
+            <span class="subtag">Embedded C/C++</span>
           </div>
-          <div class="cta-row" style="margin-top:18px">
+
+          <div class="cta-row" style="margin-top: 18px;">
             <a class="btn btn-secondary" href="https://github.com/sachinjat" target="_blank">View Repository</a>
           </div>
         </div>
 
         <div class="card reveal">
           <div class="project-category">Robotics</div>
-          <h3 style="margin-top:12px">🤖 Obstacle Avoidance Robot</h3>
+          <h3 style="margin-top: 12px;">🤖 Obstacle Avoidance Robot</h3>
 
-          <div class="project-media">
-            <img src="robot1.jpg" alt="Robot screenshot 1" class="project-img active" onclick="openPopup(this.src)">
-            <img src="robot2.jpg" alt="Robot screenshot 2" class="project-img" onclick="openPopup(this.src)">
-            <div class="project-controls">
-              <button onclick="prevSlide(this)">‹ Prev</button>
-              <button onclick="nextSlide(this)">Next ›</button>
-            </div>
-            <a href="robot1.jpg" target="_blank" class="view-demo-btn">View Demo</a>
+          <video controls class="video-frame">
+            <source src="robot.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+
+          <a href="robot.mp4" target="_blank" class="view-demo-btn">Watch Full Demo</a>
+
+          <p style="margin-top: 14px;">
+            Built an Arduino-based autonomous robot using ultrasonic sensors and motor-driver logic.
+            Implemented obstacle detection, real-time decision making, and verified movement through live testing.
+          </p>
+
+          <div class="tag-row" style="margin-top: 14px;">
+            <span class="subtag">Ultrasonic Sensor</span>
+            <span class="subtag">Motor Control</span>
+            <span class="subtag">Autonomous Logic</span>
+            <span class="subtag">Debugging</span>
           </div>
 
-          <p style="margin-top:14px">Built an Arduino-based robot using ultrasonic sensing and motor-driver logic for autonomous obstacle detection and movement control.</p>
-          <div class="tag-row" style="margin-top:14px">
-            <span class="subtag">Ultrasonic Sensor</span><span class="subtag">Motor Control</span><span class="subtag">Autonomous Logic</span><span class="subtag">Debugging</span>
-          </div>
-          <div class="cta-row" style="margin-top:18px">
+          <div class="cta-row" style="margin-top: 18px;">
             <a class="btn btn-secondary" href="https://github.com/sachinjat" target="_blank">View Repository</a>
           </div>
         </div>
 
         <div class="card reveal">
           <div class="project-category">Technical Documentation</div>
-          <h3 style="margin-top:12px">📘 Java OOP Complete Study Guide</h3>
+          <h3 style="margin-top: 12px;">📘 Java OOP Complete Study Guide</h3>
 
-          <div class="project-media">
-            <img src="java1.jpg" alt="Java guide screenshot 1" class="project-img active" onclick="openPopup(this.src)">
-            <img src="java2.jpg" alt="Java guide screenshot 2" class="project-img" onclick="openPopup(this.src)">
-            <div class="project-controls">
-              <button onclick="prevSlide(this)">‹ Prev</button>
-              <button onclick="nextSlide(this)">Next ›</button>
-            </div>
-            <a href="java1.jpg" target="_blank" class="view-demo-btn">View Demo</a>
+          <p style="margin-top: 14px;">
+            Created two structured Java study guides covering both fundamentals and advanced OOP concepts for academic learning and interview preparation.
+          </p>
+
+          <div class="tag-row" style="margin-top: 14px;">
+            <span class="subtag">Java Basics</span>
+            <span class="subtag">OOP</span>
+            <span class="subtag">Multithreading</span>
+            <span class="subtag">Streams</span>
+            <span class="subtag">Documentation</span>
           </div>
 
-          <p style="margin-top:14px">Created structured study guides covering Java fundamentals and advanced OOP concepts including inheritance, polymorphism, multithreading, streams, and functional programming.</p>
-          <div class="tag-row" style="margin-top:14px">
-            <span class="subtag">Java</span><span class="subtag">OOP</span><span class="subtag">Documentation</span><span class="subtag">Conceptual Depth</span>
+          <div class="card" style="margin-top: 18px; padding: 18px;">
+            <h4>Guide 1 — Java Fundamentals</h4>
+            <p style="margin-bottom: 10px;">
+              Covers JDK, JRE, JVM, compiler, variables, strings, decisions, loops, objects, classes, static methods, encapsulation, abstraction, exceptions, overloading, enums, and arrays.
+            </p>
+            <a class="btn btn-primary" href="Java_Study_Guide_1.docx" download>Download Guide 1</a>
           </div>
-          <div class="cta-row" style="margin-top:18px">
-            <a class="btn btn-secondary" href="https://github.com/sachinjat" target="_blank">View Repository</a>
+
+          <div class="card" style="margin-top: 14px; padding: 18px;">
+            <h4>Guide 2 — Advanced Java & OOP</h4>
+            <p style="margin-bottom: 10px;">
+              Covers inheritance, overriding, annotations, interfaces, abstract classes, garbage collection, polymorphism, casting, HashMaps, multithreading, generics, lambdas, and streams.
+            </p>
+            <a class="btn btn-primary" href="Java_Study_Guide_2.docx" download>Download Guide 2</a>
           </div>
         </div>
       </div>
@@ -607,17 +792,17 @@
 
   <section id="experience" class="section">
     <div class="container">
-      <div class="eyebrow" style="color:#fde68a">Experience</div>
+      <div class="eyebrow" style="color: #fde68a;">Experience</div>
       <h2>Leadership & Technical Support</h2>
-      <div class="grid-2" style="margin-top:24px">
+      <div class="grid-2" style="margin-top: 24px;">
         <div class="card reveal">
           <h3>Front Manager</h3>
-          <p style="color:#fde68a;margin-bottom:12px">Doaba Sweets & Restaurant</p>
+          <p style="color: #fde68a; margin-bottom: 12px;">Doaba Sweets & Restaurant</p>
           <p>Managed daily operations and supervised a team of 20 staff members. Maintained 100% accuracy in POS transactions and provided troubleshooting support for POS systems and basic IT issues.</p>
         </div>
         <div class="card reveal">
           <h3>Volunteer Club Coordinator</h3>
-          <p style="color:#fde68a;margin-bottom:12px">Aeronautical Club, Sheridan College</p>
+          <p style="color: #fde68a; margin-bottom: 12px;">Aeronautical Club, Sheridan College</p>
           <p>Coordinated technical workshops, engineering-related student activities, schedules, logistics, and team collaboration.</p>
         </div>
       </div>
@@ -628,9 +813,9 @@
     <div class="container card reveal">
       <div class="grid-2">
         <div>
-          <div class="eyebrow" style="color:#ddd6fe">Certifications</div>
+          <div class="eyebrow" style="color: #ddd6fe;">Certifications</div>
           <h2>Technical Credentials</h2>
-          <p style="margin-top:12px">A focused certification path in hardware, IT support, cybersecurity, networking, and IT service management.</p>
+          <p style="margin-top: 12px;">A focused certification path in hardware, IT support, cybersecurity, networking, and IT service management.</p>
         </div>
         <div class="cert-grid">
           <div class="mini">CompTIA A+ Core 1 (220-1201) Cert Prep</div>
@@ -649,20 +834,12 @@
     <div class="container">
       <div class="eyebrow">GitHub</div>
       <h2>Development Activity</h2>
-      <div class="grid-2" style="margin-top:24px">
+      <div class="grid-2" style="margin-top: 24px;">
         <div class="card reveal">
-          <img
-            src="https://github-readme-stats.vercel.app/api?username=sachinjat&show_icons=true&theme=tokyonight"
-            alt="GitHub stats"
-            style="width:100%; border-radius:16px;"
-          />
+          <img src="https://github-readme-stats.vercel.app/api?username=sachinjat&show_icons=true&theme=tokyonight" alt="GitHub stats" style="width: 100%; border-radius: 16px;" />
         </div>
         <div class="card reveal">
-          <img
-            src="https://github-readme-stats.vercel.app/api/top-langs/?username=sachinjat&layout=compact&theme=tokyonight"
-            alt="Top languages"
-            style="width:100%; border-radius:16px;"
-          />
+          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sachinjat&layout=compact&theme=tokyonight" alt="Top languages" style="width: 100%; border-radius: 16px;" />
         </div>
       </div>
     </div>
@@ -674,19 +851,19 @@
         <div>
           <div class="eyebrow">Let's Connect</div>
           <h2>Open to technical opportunities</h2>
-          <p style="margin-top:12px">I’m currently seeking roles in embedded systems, hardware support, and IT support where I can contribute, learn quickly, and grow through practical engineering work.</p>
-          <div class="tag-row" style="margin-top:16px">
+          <p style="margin-top: 12px;">I’m currently seeking roles in embedded systems, hardware support, and IT support where I can contribute, learn quickly, and grow through practical engineering work.</p>
+          <div class="tag-row" style="margin-top: 16px;">
             <span class="subtag">Embedded Systems</span>
             <span class="subtag">Hardware Technician</span>
             <span class="subtag">IT Support</span>
           </div>
         </div>
         <div class="contact-box">
-          <input class="input-like" value="Sachin Jat" readonly>
-          <input class="input-like" value="sachinjat052002@gmail.com" readonly>
-          <input class="input-like" value="Toronto, ON" readonly>
-          <a class="btn btn-primary" style="width:100%;text-align:center" href="mailto:sachinjat052002@gmail.com?subject=Opportunity for Sachin Jat">Send Email</a>
-          <div class="cta-row" style="margin-top:12px">
+          <input class="input-like" value="Sachin Jat" readonly />
+          <input class="input-like" value="sachinjat052002@gmail.com" readonly />
+          <input class="input-like" value="Toronto, ON" readonly />
+          <a class="btn btn-primary" style="width: 100%; text-align: center;" href="mailto:sachinjat052002@gmail.com?subject=Opportunity for Sachin Jat">Send Email</a>
+          <div class="cta-row" style="margin-top: 12px;">
             <a class="btn btn-secondary" href="https://github.com/sachinjat" target="_blank">GitHub</a>
             <a class="btn btn-secondary" href="https://www.linkedin.com/in/sachinjat" target="_blank">LinkedIn</a>
           </div>
@@ -701,7 +878,7 @@
 
   <div class="popup" id="popup">
     <span class="popup-close" onclick="closePopup()">&times;</span>
-    <img id="popupImage" src="" alt="Preview">
+    <img id="popupImage" src="" alt="Preview" />
   </div>
 
   <script>
@@ -713,7 +890,7 @@
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    function nextSlide(button){
+    function nextSlide(button) {
       const media = button.closest('.project-media');
       const slides = media.querySelectorAll('.project-img');
       let activeIndex = [...slides].findIndex(img => img.classList.contains('active'));
@@ -722,7 +899,7 @@
       slides[activeIndex].classList.add('active');
     }
 
-    function prevSlide(button){
+    function prevSlide(button) {
       const media = button.closest('.project-media');
       const slides = media.querySelectorAll('.project-img');
       let activeIndex = [...slides].findIndex(img => img.classList.contains('active'));
@@ -731,19 +908,31 @@
       slides[activeIndex].classList.add('active');
     }
 
-    function openPopup(src){
+    function openPopup(src) {
       document.getElementById('popupImage').src = src;
       document.getElementById('popup').classList.add('active');
     }
 
-    function closePopup(){
+    function closePopup() {
       document.getElementById('popup').classList.remove('active');
     }
 
-    document.getElementById('popup').addEventListener('click', function(e){
-      if(e.target.id === 'popup'){
-        closePopup();
-      }
+    document.getElementById('popup').addEventListener('click', function (e) {
+      if (e.target.id === 'popup') closePopup();
+    });
+
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      const updateCounter = () => {
+        const target = +counter.getAttribute('data-target');
+        const current = +counter.innerText;
+        const increment = Math.max(1, Math.ceil(target / 20));
+        if (current < target) {
+          counter.innerText = current + increment > target ? target : current + increment;
+          setTimeout(updateCounter, 60);
+        }
+      };
+      updateCounter();
     });
   </script>
 </body>
