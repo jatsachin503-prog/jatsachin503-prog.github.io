@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sachin Jat | Portfolio</title>
+  <title>Sachin Jat | Embedded Systems Portfolio</title>
+  <meta name="description" content="Sachin Jat portfolio website showcasing embedded systems, robotics, hardware troubleshooting, and IT support projects." />
   <style>
     :root{
       --bg:#020617;
+      --bg2:#0b1220;
       --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.04);
       --line:rgba(255,255,255,.10);
       --text:#e5eefc;
       --muted:#b7c4d9;
@@ -15,99 +18,154 @@
       --sky2:#0ea5e9;
       --emerald:#34d399;
       --amber:#fbbf24;
+      --violet:#a78bfa;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:Arial, Helvetica, sans-serif;
+      font-family:Inter,Segoe UI,Arial,sans-serif;
+      color:var(--text);
       background:
         radial-gradient(circle at top left, rgba(56,189,248,.18), transparent 30%),
         radial-gradient(circle at top right, rgba(52,211,153,.10), transparent 25%),
-        var(--bg);
-      color:var(--text);
-      line-height:1.6;
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      line-height:1.65;
     }
-    .container{max-width:1120px;margin:0 auto;padding:0 24px}
-    .hero,.section{padding:56px 0}
-    .hero{border-bottom:1px solid var(--line)}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:1140px;margin:0 auto;padding:0 24px}
+    .nav{
+      position:sticky;top:0;z-index:10;
+      backdrop-filter:blur(12px);
+      background:rgba(2,6,23,.72);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 0;
+    }
+    .brand{font-weight:800;letter-spacing:.02em}
+    .nav-links{display:flex;gap:18px;flex-wrap:wrap}
+    .nav-links a{color:var(--muted);font-size:14px}
+    .nav-links a:hover{color:#fff}
+    .hero,.section{padding:64px 0}
+    .hero{padding-top:72px;border-bottom:1px solid var(--line)}
+    .hero-grid,.grid-2,.grid-3,.project-grid,.cert-grid{
+      display:grid;gap:24px
+    }
+    .hero-grid{grid-template-columns:1.3fr .8fr;align-items:center}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .project-grid{grid-template-columns:repeat(3,1fr)}
+    .cert-grid{grid-template-columns:repeat(2,1fr)}
     .badge{
       display:inline-block;padding:8px 14px;border-radius:999px;
       border:1px solid rgba(56,189,248,.25);background:rgba(56,189,248,.10);
       color:#bfe9ff;font-size:14px
     }
-    h1{font-size:54px;line-height:1.05;margin:16px 0 10px}
-    h2{font-size:32px;margin:0 0 8px}
+    h1{font-size:58px;line-height:1.02;margin:16px 0 10px}
+    h2{font-size:34px;margin:0 0 8px}
     h3{font-size:22px;margin:0 0 8px}
     p{margin:0;color:var(--muted)}
-    .hero-grid,.grid-3,.grid-2,.project-grid,.cert-grid{
-      display:grid;gap:24px
-    }
-    .hero-grid{grid-template-columns:1.35fr .85fr;align-items:center}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-2{grid-template-columns:repeat(2,1fr)}
-    .project-grid{grid-template-columns:repeat(3,1fr)}
-    .cert-grid{grid-template-columns:repeat(2,1fr)}
+    .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#b4ecff;margin-bottom:10px}
+    .lead{font-size:20px;max-width:760px}
     .card{
-      background:var(--panel);border:1px solid var(--line);
-      border-radius:24px;padding:24px
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      border:1px solid var(--line);
+      border-radius:24px;padding:24px;
+      box-shadow:0 20px 40px rgba(0,0,0,.18);
     }
     .profile-wrap{
-      border-radius:28px;padding:14px;background:linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border-radius:28px;padding:14px;
+      background:linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
       border:1px solid var(--line)
     }
-    .profile-img{width:100%;max-width:320px;border-radius:24px;display:block;object-fit:cover}
-    .cta-row,.tag-row{display:flex;flex-wrap:wrap;gap:12px}
-    .cta-row{margin-top:28px}
-    .btn{
-      display:inline-block;padding:13px 18px;border-radius:16px;text-decoration:none;
-      color:white;font-weight:600;border:1px solid var(--line)
+    .profile-img{
+      width:100%;max-width:330px;border-radius:24px;display:block;object-fit:cover
     }
-    .btn-primary{background:linear-gradient(135deg,var(--sky),var(--sky2));border:none}
-    .btn-secondary{background:rgba(255,255,255,.05)}
     .mini-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
     .mini{padding:14px;border-radius:16px;background:rgba(0,0,0,.18);border:1px solid var(--line)}
     .mini strong{display:block;font-size:22px;color:#fff}
-    .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#b4ecff;margin-bottom:10px}
+    .tag-row,.cta-row{display:flex;gap:12px;flex-wrap:wrap}
     .tag{
       display:inline-block;padding:7px 12px;border-radius:999px;
-      background:rgba(56,189,248,.10);border:1px solid rgba(56,189,248,.20);color:#d6f3ff;font-size:14px
+      background:rgba(56,189,248,.10);border:1px solid rgba(56,189,248,.20);
+      color:#d6f3ff;font-size:14px
     }
     .subtag{
       display:inline-block;padding:6px 11px;border-radius:999px;
       background:rgba(0,0,0,.20);border:1px solid var(--line);color:#d8dfec;font-size:12px
+    }
+    .btn{
+      display:inline-block;padding:13px 18px;border-radius:16px;
+      color:white;font-weight:700;border:1px solid var(--line);
+      transition:transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:linear-gradient(135deg,var(--sky),var(--sky2));border:none}
+    .btn-secondary{background:rgba(255,255,255,.05)}
+    .btn-secondary:hover{background:rgba(255,255,255,.09)}
+    .role-rotator{
+      height:34px;overflow:hidden;color:#aee6ff;font-weight:800;margin:8px 0 16px;
+    }
+    .role-rotator span{
+      display:block;animation:rotateRoles 11s infinite;
+    }
+    @keyframes rotateRoles{
+      0%,20%{transform:translateY(0)}
+      25%,45%{transform:translateY(-34px)}
+      50%,70%{transform:translateY(-68px)}
+      75%,95%{transform:translateY(-102px)}
+      100%{transform:translateY(0)}
     }
     .project-category{
       display:inline-block;padding:6px 11px;border-radius:999px;font-size:12px;
       text-transform:uppercase;letter-spacing:.08em;color:#d5fff3;
       background:rgba(52,211,153,.10);border:1px solid rgba(52,211,153,.20)
     }
-    .project-card .btn{margin-top:18px}
-    .role-rotator{
-      height:32px; overflow:hidden; color:#aee6ff; font-weight:700; margin:8px 0 16px;
+    .resume-note{font-size:13px;margin-top:10px;color:#9fb3d1}
+    .contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px}
+    .contact-box{
+      padding:18px;border-radius:18px;background:rgba(0,0,0,.18);border:1px solid var(--line)
     }
-    .role-rotator span{
-      display:block; animation: rotateRoles 10s infinite;
+    .input-like{
+      display:block;width:100%;padding:14px 16px;border-radius:14px;
+      background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--text);
+      margin-bottom:12px
     }
-    @keyframes rotateRoles {
-      0%,20% { transform: translateY(0); }
-      25%,45% { transform: translateY(-32px); }
-      50%,70% { transform: translateY(-64px); }
-      75%,95% { transform: translateY(-96px); }
-      100% { transform: translateY(0); }
+    .footer{padding:26px 0 56px;color:#90a3bf;font-size:14px}
+    .reveal{
+      opacity:0;transform:translateY(18px);transition:all .6s ease;
     }
-    .footer{padding:24px 0 56px;color:#90a3bf;font-size:14px}
+    .reveal.visible{
+      opacity:1;transform:translateY(0);
+    }
     @media (max-width: 960px){
-      .hero-grid,.grid-3,.grid-2,.project-grid,.cert-grid{grid-template-columns:1fr}
-      h1{font-size:40px}
+      h1{font-size:42px}
       h2{font-size:28px}
+      .hero-grid,.grid-2,.grid-3,.project-grid,.cert-grid,.contact-grid{grid-template-columns:1fr}
+      .nav-inner{align-items:flex-start;gap:12px;flex-direction:column}
     }
   </style>
 </head>
 <body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Sachin Jat</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
   <section class="hero">
     <div class="container hero-grid">
-      <div>
+      <div class="reveal visible">
         <div class="badge">Toronto, ON · Engineering Portfolio</div>
         <h1>Sachin Jat</h1>
         <div class="role-rotator">
@@ -116,7 +174,7 @@
           <span>Hardware & IT Support Focused</span>
           <span>Arduino Projects & Technical Documentation</span>
         </div>
-        <p style="font-size:20px;max-width:720px">
+        <p class="lead">
           Computer Engineering graduate focused on embedded systems, hardware troubleshooting, and IT support.
           I build practical projects with Arduino, electronics, and real-world debugging workflows.
         </p>
@@ -129,13 +187,15 @@
           <span class="tag">Networking</span>
           <span class="tag">Cybersecurity</span>
         </div>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="mailto:sachinjat052002@gmail.com">Contact Me</a>
+        <div class="cta-row" style="margin-top:24px">
+          <a class="btn btn-primary" href="#contact">Hire Me</a>
+          <a class="btn btn-secondary" href="Sachin_Jat_Resume.docx" download>Download Resume</a>
           <a class="btn btn-secondary" href="https://github.com/sachinjat" target="_blank">GitHub</a>
           <a class="btn btn-secondary" href="https://www.linkedin.com/in/sachinjat" target="_blank">LinkedIn</a>
         </div>
+        <p class="resume-note">Resume download uses the file included in this website package.</p>
       </div>
-      <div class="profile-wrap">
+      <div class="profile-wrap reveal">
         <img src="profile.jpg" alt="Sachin Jat" class="profile-img" />
         <div class="mini-stats">
           <div class="mini"><strong>3+</strong>Core portfolio projects</div>
@@ -145,47 +205,47 @@
     </div>
   </section>
 
-  <section class="section">
+  <section id="about" class="section">
     <div class="container grid-3">
-      <div class="card">
+      <div class="card reveal">
         <h3>About Me</h3>
         <p>I am a Computer Engineering graduate from Sheridan College with hands-on experience in Arduino, electronics, hardware debugging, and technical support.</p>
       </div>
-      <div class="card">
+      <div class="card reveal">
         <h3>Career Goal</h3>
-        <p>Seeking entry-level opportunities in embedded systems, hardware technician, or IT support roles where I can contribute practical technical skills and keep growing.</p>
+        <p>Seeking entry-level opportunities in embedded systems, hardware technician, or IT support roles where I can contribute practical technical skills and continue growing through real-world work.</p>
       </div>
-      <div class="card">
+      <div class="card reveal">
         <h3>Education</h3>
         <p>Diploma in Computer Engineering<br>Sheridan College, Brampton, ON<br>Graduated: August 2025</p>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section id="skills" class="section">
     <div class="container">
       <div class="eyebrow">Technical Profile</div>
       <h2>Skills & Strengths</h2>
       <div class="grid-2" style="margin-top:24px">
-        <div class="card">
+        <div class="card reveal">
           <h3>Programming</h3>
           <div class="tag-row" style="margin-top:14px">
             <span class="tag">C</span><span class="tag">C++</span><span class="tag">Python</span><span class="tag">Java</span>
           </div>
         </div>
-        <div class="card">
+        <div class="card reveal">
           <h3>Embedded Systems</h3>
           <div class="tag-row" style="margin-top:14px">
             <span class="tag">Arduino</span><span class="tag">Microcontrollers</span><span class="tag">ADC</span><span class="tag">Sensors & Actuators</span><span class="tag">Real-Time Systems</span>
           </div>
         </div>
-        <div class="card">
+        <div class="card reveal">
           <h3>Hardware</h3>
           <div class="tag-row" style="margin-top:14px">
             <span class="tag">Circuit Design</span><span class="tag">Soldering</span><span class="tag">PCB Assembly</span><span class="tag">Hardware Debugging</span><span class="tag">Multimeter</span>
           </div>
         </div>
-        <div class="card">
+        <div class="card reveal">
           <h3>IT & Networking</h3>
           <div class="tag-row" style="margin-top:14px">
             <span class="tag">Technical Support</span><span class="tag">Windows OS</span><span class="tag">Networking Fundamentals</span><span class="tag">System Troubleshooting</span>
@@ -195,55 +255,61 @@
     </div>
   </section>
 
-  <section class="section">
+  <section id="projects" class="section">
     <div class="container">
       <div class="eyebrow" style="color:#bbf7d0">Portfolio</div>
       <h2>Featured Projects</h2>
       <div class="project-grid" style="margin-top:24px">
-        <div class="card project-card">
+        <div class="card reveal">
           <div class="project-category">Embedded Systems</div>
           <h3 style="margin-top:12px">Arduino Digital Multimeter Prototype</h3>
           <p>Designed and implemented an Arduino-based voltage measurement system using ADC, embedded C/C++, calibration, and testing for accurate readings.</p>
           <div class="tag-row" style="margin-top:14px">
             <span class="subtag">ADC</span><span class="subtag">Calibration</span><span class="subtag">Circuit Testing</span><span class="subtag">Embedded C/C++</span>
           </div>
-          <a class="btn btn-secondary" href="https://github.com/sachinjat/arduino-digital-multimeter" target="_blank">View Repository</a>
+          <div class="cta-row" style="margin-top:18px">
+            <a class="btn btn-secondary" href="https://github.com/sachinjat/arduino-digital-multimeter" target="_blank">View Repository</a>
+          </div>
         </div>
 
-        <div class="card project-card">
+        <div class="card reveal">
           <div class="project-category">Robotics</div>
           <h3 style="margin-top:12px">Obstacle Avoidance Robot</h3>
           <p>Built an Arduino-based robot using ultrasonic sensing and motor-driver logic for autonomous obstacle detection and movement control.</p>
           <div class="tag-row" style="margin-top:14px">
             <span class="subtag">Ultrasonic Sensor</span><span class="subtag">Motor Control</span><span class="subtag">Autonomous Logic</span><span class="subtag">Debugging</span>
           </div>
-          <a class="btn btn-secondary" href="https://github.com/sachinjat/arduino-obstacle-avoidance-robot" target="_blank">View Repository</a>
+          <div class="cta-row" style="margin-top:18px">
+            <a class="btn btn-secondary" href="https://github.com/sachinjat/arduino-obstacle-avoidance-robot" target="_blank">View Repository</a>
+          </div>
         </div>
 
-        <div class="card project-card">
+        <div class="card reveal">
           <div class="project-category">Technical Documentation</div>
           <h3 style="margin-top:12px">Java OOP Complete Study Guide</h3>
           <p>Created structured study guides covering Java fundamentals and advanced OOP concepts including inheritance, polymorphism, multithreading, streams, and functional programming.</p>
           <div class="tag-row" style="margin-top:14px">
             <span class="subtag">Java</span><span class="subtag">OOP</span><span class="subtag">Documentation</span><span class="subtag">Conceptual Depth</span>
           </div>
-          <a class="btn btn-secondary" href="https://github.com/sachinjat/java-oop-complete-guide" target="_blank">View Repository</a>
+          <div class="cta-row" style="margin-top:18px">
+            <a class="btn btn-secondary" href="https://github.com/sachinjat/java-oop-complete-guide" target="_blank">View Repository</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section id="experience" class="section">
     <div class="container">
       <div class="eyebrow" style="color:#fde68a">Experience</div>
       <h2>Leadership & Technical Support</h2>
       <div class="grid-2" style="margin-top:24px">
-        <div class="card">
+        <div class="card reveal">
           <h3>Front Manager</h3>
           <p style="color:#fde68a;margin-bottom:12px">Doaba Sweets & Restaurant</p>
           <p>Managed daily operations and supervised a team of 20 staff members. Maintained 100% accuracy in POS transactions and provided troubleshooting support for POS systems and basic IT issues.</p>
         </div>
-        <div class="card">
+        <div class="card reveal">
           <h3>Volunteer Club Coordinator</h3>
           <p style="color:#fde68a;margin-bottom:12px">Aeronautical Club, Sheridan College</p>
           <p>Coordinated technical workshops, engineering-related student activities, schedules, logistics, and team collaboration.</p>
@@ -252,8 +318,8 @@
     </div>
   </section>
 
-  <section class="section">
-    <div class="container card">
+  <section id="certifications" class="section">
+    <div class="container card reveal">
       <div class="grid-2">
         <div>
           <div class="eyebrow" style="color:#ddd6fe">Certifications</div>
@@ -273,9 +339,9 @@
     </div>
   </section>
 
-  <section class="section">
-    <div class="container card">
-      <div class="grid-2">
+  <section id="contact" class="section">
+    <div class="container card reveal">
+      <div class="contact-grid">
         <div>
           <div class="eyebrow">Let's Connect</div>
           <h2>Open to technical opportunities</h2>
@@ -286,9 +352,15 @@
             <span class="subtag">IT Support</span>
           </div>
         </div>
-        <div class="cta-row" style="align-items:flex-start">
-          <a class="btn btn-primary" href="mailto:sachinjat052002@gmail.com">Email Me</a>
-          <a class="btn btn-secondary" href="https://github.com/sachinjat" target="_blank">Visit GitHub</a>
+        <div class="contact-box">
+          <input class="input-like" value="Sachin Jat" readonly>
+          <input class="input-like" value="sachinjat052002@gmail.com" readonly>
+          <input class="input-like" value="Toronto, ON" readonly>
+          <a class="btn btn-primary" style="width:100%;text-align:center" href="mailto:sachinjat052002@gmail.com?subject=Opportunity for Sachin Jat">Send Email</a>
+          <div class="cta-row" style="margin-top:12px">
+            <a class="btn btn-secondary" href="https://github.com/sachinjat" target="_blank">GitHub</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/sachinjat" target="_blank">LinkedIn</a>
+          </div>
         </div>
       </div>
     </div>
@@ -297,5 +369,14 @@
   <div class="container footer">
     © 2026 Sachin Jat · Portfolio Website
   </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
