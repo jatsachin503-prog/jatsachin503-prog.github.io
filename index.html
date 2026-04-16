@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sachin Jat | Embedded Systems Portfolio</title>
-  <meta name="description" content="Sachin Jat portfolio website showcasing embedded systems, robotics, hardware troubleshooting, and IT support projects." />
+  <meta
+    name="description"
+    content="Sachin Jat portfolio website showcasing embedded systems, robotics, hardware troubleshooting, and IT support projects."
+  />
   <style>
     :root {
       --bg: #020617;
@@ -17,6 +20,7 @@
       --sky: #38bdf8;
       --sky2: #0ea5e9;
       --emerald: #34d399;
+      --amber: #fbbf24;
       --violet: #a78bfa;
       --shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
       --radius: 24px;
@@ -39,6 +43,18 @@
 
     a { color: inherit; text-decoration: none; }
     img, video { max-width: 100%; display: block; }
+
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      z-index: 1200;
+      background: linear-gradient(90deg, var(--sky), var(--emerald));
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.45);
+      transition: width 0.08s linear;
+    }
 
     .bg-orb {
       position: fixed;
@@ -91,11 +107,7 @@
       animation: fadeInUp 0.9s ease;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
+    .nav-links { display: flex; gap: 18px; flex-wrap: wrap; }
 
     .nav-links a {
       position: relative;
@@ -104,10 +116,7 @@
       transition: color 0.2s ease, transform 0.2s ease;
     }
 
-    .nav-links a:hover {
-      color: #fff;
-      transform: translateY(-2px);
-    }
+    .nav-links a:hover { color: #fff; transform: translateY(-2px); }
 
     .nav-links a::after {
       content: "";
@@ -183,22 +192,11 @@
       transition: transform 0.8s ease;
     }
 
-    .visible h2::after,
-    .section-title.visible::after {
-      transform: scaleX(1);
-    }
+    .reveal.visible h2::after,
+    .title-visible::after { transform: scaleX(1); }
 
-    h3 {
-      font-size: 22px;
-      margin: 0 0 8px;
-    }
-
-    h4 {
-      font-size: 18px;
-      margin: 0 0 10px;
-      color: #fff;
-    }
-
+    h3 { font-size: 22px; margin: 0 0 8px; }
+    h4 { font-size: 18px; margin: 0 0 10px; color: #fff; }
     p { margin: 0; color: var(--muted); }
 
     .eyebrow {
@@ -234,6 +232,11 @@
       transform: translateY(-8px) scale(1.01);
       box-shadow: 0 26px 56px rgba(0, 0, 0, 0.30);
       border-color: rgba(56, 189, 248, 0.28);
+    }
+
+    .robot-card:hover {
+      transform: translateY(-10px) scale(1.015);
+      box-shadow: 0 30px 60px rgba(14, 165, 233, 0.20);
     }
 
     .profile-wrap {
@@ -322,18 +325,9 @@
 
     .btn:hover::before { left: 120%; }
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--sky), var(--sky2));
-      border: none;
-    }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.09);
-    }
+    .btn-primary { background: linear-gradient(135deg, var(--sky), var(--sky2)); border: none; }
+    .btn-secondary { background: rgba(255, 255, 255, 0.05); }
+    .btn-secondary:hover { background: rgba(255, 255, 255, 0.09); }
 
     .typing-wrap {
       min-height: 42px;
@@ -419,12 +413,12 @@
       transition: all 0.7s ease;
     }
 
-    .stagger.visible > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.05s; }
-    .stagger.visible > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.12s; }
-    .stagger.visible > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.19s; }
-    .stagger.visible > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.26s; }
-    .stagger.visible > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.33s; }
-    .stagger.visible > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.40s; }
+    .stagger.visible > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.04s; }
+    .stagger.visible > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.10s; }
+    .stagger.visible > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.16s; }
+    .stagger.visible > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.22s; }
+    .stagger.visible > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.28s; }
+    .stagger.visible > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.34s; }
 
     .project-media {
       position: relative;
@@ -485,6 +479,12 @@
       margin-top: 14px;
       background: #000;
       animation: fadeIn 0.8s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .robot-card:hover .video-frame {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 36px rgba(14, 165, 233, 0.18);
     }
 
     .popup {
@@ -516,6 +516,20 @@
       font-size: 34px;
       color: white;
       cursor: pointer;
+    }
+
+    .word-reveal span {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(18px);
+    }
+
+    .word-reveal.visible span {
+      animation: wordRise 0.55s ease forwards;
+    }
+
+    @keyframes wordRise {
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeInUp {
@@ -552,10 +566,22 @@
         gap: 12px;
         flex-direction: column;
       }
+
+      .stagger > * {
+        transition-duration: 0.55s;
+      }
+
+      .stagger.visible > *:nth-child(1) { transition-delay: 0.02s; }
+      .stagger.visible > *:nth-child(2) { transition-delay: 0.06s; }
+      .stagger.visible > *:nth-child(3) { transition-delay: 0.10s; }
+      .stagger.visible > *:nth-child(4) { transition-delay: 0.14s; }
+      .stagger.visible > *:nth-child(5) { transition-delay: 0.18s; }
+      .stagger.visible > *:nth-child(6) { transition-delay: 0.22s; }
     }
   </style>
 </head>
 <body>
+  <div class="scroll-progress" id="scrollProgress"></div>
   <div class="bg-orb orb-1"></div>
   <div class="bg-orb orb-2"></div>
   <div class="bg-orb orb-3"></div>
@@ -580,16 +606,13 @@
       <div>
         <div class="badge">Toronto, ON · Engineering Portfolio</div>
         <h1>Sachin Jat</h1>
-
         <div class="typing-wrap">
           <span class="typing-text" id="typingText"></span>
         </div>
-
         <p class="lead">
           Computer Engineering graduate focused on embedded systems, hardware troubleshooting, and IT support.
           I build practical projects with Arduino, electronics, and real-world debugging workflows.
         </p>
-
         <div class="tag-row" style="margin-top: 18px;">
           <span class="tag">Arduino</span>
           <span class="tag">C++</span>
@@ -599,14 +622,12 @@
           <span class="tag">Networking</span>
           <span class="tag">Cybersecurity</span>
         </div>
-
         <div class="cta-row" style="margin-top: 24px;">
           <a class="btn btn-primary" href="#contact">Hire Me</a>
           <a class="btn btn-secondary" href="Sachin_Jat_Resume.docx" download>Download Resume</a>
           <a class="btn btn-secondary" href="https://github.com/jatsachin503-prog" target="_blank">GitHub</a>
           <a class="btn btn-secondary" href="https://www.linkedin.com/in/sachinjat" target="_blank">LinkedIn</a>
         </div>
-
         <p class="resume-note">Resume download uses the file included in this website package.</p>
       </div>
 
@@ -623,7 +644,7 @@
   <section id="about" class="section reveal stagger">
     <div class="container">
       <div class="eyebrow">Profile</div>
-      <h2>About Me</h2>
+      <h2 class="word-reveal">About Me</h2>
       <div class="grid-3" style="margin-top:24px;">
         <div class="card">
           <h3>About Me</h3>
@@ -644,7 +665,7 @@
   <section id="skills" class="section reveal stagger">
     <div class="container">
       <div class="eyebrow">Technical Profile</div>
-      <h2>Skills & Strengths</h2>
+      <h2 class="word-reveal">Skills & Strengths</h2>
       <div class="grid-2" style="margin-top:24px;">
         <div class="card">
           <h3>Programming</h3>
@@ -677,7 +698,7 @@
   <section id="projects" class="section reveal stagger">
     <div class="container">
       <div class="eyebrow" style="color:#bbf7d0;">Portfolio</div>
-      <h2>Featured Projects</h2>
+      <h2 class="word-reveal">Featured Projects</h2>
 
       <div class="project-grid" style="margin-top:24px;">
         <div class="card">
@@ -707,7 +728,7 @@
           </div>
         </div>
 
-        <div class="card">
+        <div class="card robot-card">
           <div class="project-category">Robotics</div>
           <h3 style="margin-top:12px;">🤖 Obstacle Avoidance Robot</h3>
 
@@ -770,7 +791,7 @@
   <section id="experience" class="section reveal stagger">
     <div class="container">
       <div class="eyebrow" style="color:#fde68a;">Experience</div>
-      <h2>Leadership & Technical Support</h2>
+      <h2 class="word-reveal">Leadership & Technical Support</h2>
       <div class="grid-2" style="margin-top:24px;">
         <div class="card">
           <h3>Front Manager</h3>
@@ -791,7 +812,7 @@
       <div class="grid-2">
         <div>
           <div class="eyebrow" style="color:#ddd6fe;">Certifications</div>
-          <h2>Technical Credentials</h2>
+          <h2 class="word-reveal">Technical Credentials</h2>
           <p style="margin-top:12px;">A focused certification path in hardware, IT support, cybersecurity, networking, and IT service management.</p>
         </div>
         <div class="cert-grid">
@@ -810,7 +831,7 @@
   <section id="github" class="section reveal stagger">
     <div class="container">
       <div class="eyebrow">GitHub</div>
-      <h2>Development Activity</h2>
+      <h2 class="word-reveal">Development Activity</h2>
       <div class="grid-2" style="margin-top:24px;">
         <div class="card">
           <img
@@ -835,7 +856,7 @@
       <div class="contact-grid">
         <div>
           <div class="eyebrow">Let's Connect</div>
-          <h2>Open to technical opportunities</h2>
+          <h2 class="word-reveal">Open to Technical Opportunities</h2>
           <p style="margin-top:12px;">I’m currently seeking roles in embedded systems, hardware support, and IT support where I can contribute, learn quickly, and grow through practical engineering work.</p>
           <div class="tag-row" style="margin-top:16px;">
             <span class="subtag">Embedded Systems</span>
@@ -954,6 +975,366 @@
         const current = +counter.innerText;
         const increment = Math.max(1, Math.ceil(target / 20));
 
+        if (current < target) {
+          counter.innerText = current + increment > target ? target : current + increment;
+          setTimeout(updateCounter, 60);
+        }
+      };
+      updateCounter();
+    });
+
+    const progressBar = document.getElementById("scrollProgress");
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = progress + "%";
+    });
+
+    document.querySelectorAll('.word-reveal').forEach((heading) => {
+      const words = heading.textContent.trim().split(' ');
+      heading.innerHTML = words.map((word, i) => `<span style="animation-delay:${i * 0.08}s">${word}&nbsp;</span>`).join('');
+      const headingObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.4 });
+      headingObserver.observe(heading);
+    });
+  </script>
+</body>
+</html>
+</head>
+<body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Sachin Jat</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#github">GitHub</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="reveal visible">
+        <div class="badge">Toronto, ON · Engineering Portfolio</div>
+        <h1>Sachin Jat</h1>
+        <div class="role-rotator">
+          <span>Computer Engineering Graduate</span>
+          <span>Embedded Systems Builder</span>
+          <span>Hardware & IT Support Focused</span>
+          <span>Arduino Projects & Technical Documentation</span>
+        </div>
+        <p class="lead">
+          Computer Engineering graduate focused on embedded systems, hardware troubleshooting, and IT support.
+          I build practical projects with Arduino, electronics, and real-world debugging workflows.
+        </p>
+        <div class="tag-row" style="margin-top: 18px;">
+          <span class="tag">Arduino</span>
+          <span class="tag">C++</span>
+          <span class="tag">Embedded Systems</span>
+          <span class="tag">Hardware Debugging</span>
+          <span class="tag">IT Support</span>
+          <span class="tag">Networking</span>
+          <span class="tag">Cybersecurity</span>
+        </div>
+        <div class="cta-row" style="margin-top: 24px;">
+          <a class="btn btn-primary" href="#contact">Hire Me</a>
+          <a class="btn btn-secondary" href="Sachin_Jat_Resume.docx" download>Download Resume</a>
+          <a class="btn btn-secondary" href="https://github.com/sachinjat" target="_blank">GitHub</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/sachinjat" target="_blank">LinkedIn</a>
+        </div>
+        <p class="resume-note">Resume download uses the file included in this website package.</p>
+      </div>
+
+      <div class="profile-wrap reveal">
+        <img src="profile.jpg" alt="Sachin Jat" class="profile-img" />
+        <div class="mini-stats">
+          <div class="mini"><strong class="counter" data-target="3">0</strong>Core portfolio projects</div>
+          <div class="mini"><strong class="counter" data-target="7">0</strong>Technical certifications</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container grid-3">
+      <div class="card reveal">
+        <h3>About Me</h3>
+        <p>I am a Computer Engineering graduate from Sheridan College with hands-on experience in Arduino, electronics, hardware debugging, and technical support.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Career Goal</h3>
+        <p>Seeking entry-level opportunities in embedded systems, hardware technician, or IT support roles where I can contribute practical technical skills and continue growing through real-world work.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Education</h3>
+        <p>Diploma in Computer Engineering<br />Sheridan College, Brampton, ON<br />Graduated: August 2025</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="eyebrow">Technical Profile</div>
+      <h2>Skills & Strengths</h2>
+      <div class="grid-2" style="margin-top: 24px;">
+        <div class="card reveal">
+          <h3>Programming</h3>
+          <div class="tag-row" style="margin-top: 14px;">
+            <span class="tag">C</span><span class="tag">C++</span><span class="tag">Python</span><span class="tag">Java</span>
+          </div>
+        </div>
+        <div class="card reveal">
+          <h3>Embedded Systems</h3>
+          <div class="tag-row" style="margin-top: 14px;">
+            <span class="tag">Arduino</span><span class="tag">Microcontrollers</span><span class="tag">ADC</span><span class="tag">Sensors & Actuators</span><span class="tag">Real-Time Systems</span>
+          </div>
+        </div>
+        <div class="card reveal">
+          <h3>Hardware</h3>
+          <div class="tag-row" style="margin-top: 14px;">
+            <span class="tag">Circuit Design</span><span class="tag">Soldering</span><span class="tag">PCB Assembly</span><span class="tag">Hardware Debugging</span><span class="tag">Multimeter</span>
+          </div>
+        </div>
+        <div class="card reveal">
+          <h3>IT & Networking</h3>
+          <div class="tag-row" style="margin-top: 14px;">
+            <span class="tag">Technical Support</span><span class="tag">Windows OS</span><span class="tag">Networking Fundamentals</span><span class="tag">System Troubleshooting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="eyebrow" style="color: #bbf7d0;">Portfolio</div>
+      <h2>Featured Projects</h2>
+      <p class="gallery-note">Replace the project image filenames below with your real screenshots when you upload them.</p>
+      <div class="project-grid" style="margin-top: 24px;">
+        <div class="card reveal">
+          <div class="project-category">Embedded Systems</div>
+          <h3 style="margin-top: 12px;">⚡ Arduino Digital Multimeter Prototype</h3>
+
+          <div class="project-media">
+            <img src="multimeter1.jpg" alt="Multimeter screenshot 1" class="project-img active" onclick="openPopup(this.src)" />
+            <img src="multimeter2.jpg" alt="Multimeter screenshot 2" class="project-img" onclick="openPopup(this.src)" />
+            <div class="project-controls">
+              <button onclick="prevSlide(this)">‹ Prev</button>
+              <button onclick="nextSlide(this)">Next ›</button>
+            </div>
+            <a href="multimeter1.jpg" target="_blank" class="view-demo-btn">View Demo</a>
+          </div>
+
+          <p style="margin-top: 14px;">Designed and implemented an Arduino-based voltage measurement system using ADC, embedded C/C++, calibration, and testing for accurate readings.</p>
+          <div class="tag-row" style="margin-top: 14px;">
+            <span class="subtag">ADC</span><span class="subtag">Calibration</span><span class="subtag">Circuit Testing</span><span class="subtag">Embedded C/C++</span>
+          </div>
+          <div class="cta-row" style="margin-top: 18px;">
+            <a class="btn btn-secondary" href="https://github.com/sachinjat" target="_blank">View Repository</a>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="project-category">Robotics</div>
+          <h3 style="margin-top: 12px;">🤖 Obstacle Avoidance Robot</h3>
+
+          <div class="project-media">
+            <img src="robot1.jpg" alt="Robot screenshot 1" class="project-img active" onclick="openPopup(this.src)" />
+            <img src="robot2.jpg" alt="Robot screenshot 2" class="project-img" onclick="openPopup(this.src)" />
+            <div class="project-controls">
+              <button onclick="prevSlide(this)">‹ Prev</button>
+              <button onclick="nextSlide(this)">Next ›</button>
+            </div>
+            <a href="robot1.jpg" target="_blank" class="view-demo-btn">View Demo</a>
+          </div>
+
+          <p style="margin-top: 14px;">Built an Arduino-based robot using ultrasonic sensing and motor-driver logic for autonomous obstacle detection and movement control.</p>
+          <div class="tag-row" style="margin-top: 14px;">
+            <span class="subtag">Ultrasonic Sensor</span><span class="subtag">Motor Control</span><span class="subtag">Autonomous Logic</span><span class="subtag">Debugging</span>
+          </div>
+          <div class="cta-row" style="margin-top: 18px;">
+            <a class="btn btn-secondary" href="https://github.com/sachinjat" target="_blank">View Repository</a>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="project-category">Technical Documentation</div>
+          <h3 style="margin-top: 12px;">📘 Java OOP Complete Study Guide</h3>
+
+          <div class="project-media">
+            <img src="java1.jpg" alt="Java guide screenshot 1" class="project-img active" onclick="openPopup(this.src)" />
+            <img src="java2.jpg" alt="Java guide screenshot 2" class="project-img" onclick="openPopup(this.src)" />
+            <div class="project-controls">
+              <button onclick="prevSlide(this)">‹ Prev</button>
+              <button onclick="nextSlide(this)">Next ›</button>
+            </div>
+            <a href="java1.jpg" target="_blank" class="view-demo-btn">View Demo</a>
+          </div>
+
+          <p style="margin-top: 14px;">Created structured study guides covering Java fundamentals and advanced OOP concepts including inheritance, polymorphism, multithreading, streams, and functional programming.</p>
+          <div class="tag-row" style="margin-top: 14px;">
+            <span class="subtag">Java</span><span class="subtag">OOP</span><span class="subtag">Documentation</span><span class="subtag">Conceptual Depth</span>
+          </div>
+          <div class="cta-row" style="margin-top: 18px;">
+            <a class="btn btn-secondary" href="https://github.com/sachinjat" target="_blank">View Repository</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="eyebrow" style="color: #fde68a;">Experience</div>
+      <h2>Leadership & Technical Support</h2>
+      <div class="grid-2" style="margin-top: 24px;">
+        <div class="card reveal">
+          <h3>Front Manager</h3>
+          <p style="color: #fde68a; margin-bottom: 12px;">Doaba Sweets & Restaurant</p>
+          <p>Managed daily operations and supervised a team of 20 staff members. Maintained 100% accuracy in POS transactions and provided troubleshooting support for POS systems and basic IT issues.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Volunteer Club Coordinator</h3>
+          <p style="color: #fde68a; margin-bottom: 12px;">Aeronautical Club, Sheridan College</p>
+          <p>Coordinated technical workshops, engineering-related student activities, schedules, logistics, and team collaboration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications" class="section">
+    <div class="container card reveal">
+      <div class="grid-2">
+        <div>
+          <div class="eyebrow" style="color: #ddd6fe;">Certifications</div>
+          <h2>Technical Credentials</h2>
+          <p style="margin-top: 12px;">A focused certification path in hardware, IT support, cybersecurity, networking, and IT service management.</p>
+        </div>
+        <div class="cert-grid">
+          <div class="mini">CompTIA A+ Core 1 (220-1201) Cert Prep</div>
+          <div class="mini">CompTIA A+ Core 2 (220-1202) Cert Prep</div>
+          <div class="mini">ISC2 Certified in Cybersecurity (CC) Cert Prep</div>
+          <div class="mini">Computer Components and Peripherals for IT Technicians</div>
+          <div class="mini">Windows 10: Networking</div>
+          <div class="mini">Cloud and Virtualization for IT Support Professionals</div>
+          <div class="mini">ITIL 4 Foundation Concepts</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="github" class="section">
+    <div class="container">
+      <div class="eyebrow">GitHub</div>
+      <h2>Development Activity</h2>
+      <div class="grid-2" style="margin-top: 24px;">
+        <div class="card reveal">
+          <img src="https://github-readme-stats.vercel.app/api?username=sachinjat&show_icons=true&theme=tokyonight" alt="GitHub stats" style="width: 100%; border-radius: 16px;" />
+        </div>
+        <div class="card reveal">
+          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sachinjat&layout=compact&theme=tokyonight" alt="Top languages" style="width: 100%; border-radius: 16px;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container card reveal">
+      <div class="contact-grid">
+        <div>
+          <div class="eyebrow">Let's Connect</div>
+          <h2>Open to technical opportunities</h2>
+          <p style="margin-top: 12px;">I’m currently seeking roles in embedded systems, hardware support, and IT support where I can contribute, learn quickly, and grow through practical engineering work.</p>
+          <div class="tag-row" style="margin-top: 16px;">
+            <span class="subtag">Embedded Systems</span>
+            <span class="subtag">Hardware Technician</span>
+            <span class="subtag">IT Support</span>
+          </div>
+        </div>
+        <div class="contact-box">
+          <input class="input-like" value="Sachin Jat" readonly />
+          <input class="input-like" value="sachinjat052002@gmail.com" readonly />
+          <input class="input-like" value="Toronto, ON" readonly />
+          <a class="btn btn-primary" style="width: 100%; text-align: center;" href="mailto:sachinjat052002@gmail.com?subject=Opportunity for Sachin Jat">Send Email</a>
+          <div class="cta-row" style="margin-top: 12px;">
+            <a class="btn btn-secondary" href="https://github.com/sachinjat" target="_blank">GitHub</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/sachinjat" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container footer">
+    © 2026 Sachin Jat · Portfolio Website
+  </div>
+
+  <div class="popup" id="popup">
+    <span class="popup-close" onclick="closePopup()">&times;</span>
+    <img id="popupImage" src="" alt="Preview" />
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    function nextSlide(button) {
+      const media = button.closest('.project-media');
+      const slides = media.querySelectorAll('.project-img');
+      let activeIndex = [...slides].findIndex(img => img.classList.contains('active'));
+      slides[activeIndex].classList.remove('active');
+      activeIndex = (activeIndex + 1) % slides.length;
+      slides[activeIndex].classList.add('active');
+    }
+
+    function prevSlide(button) {
+      const media = button.closest('.project-media');
+      const slides = media.querySelectorAll('.project-img');
+      let activeIndex = [...slides].findIndex(img => img.classList.contains('active'));
+      slides[activeIndex].classList.remove('active');
+      activeIndex = (activeIndex - 1 + slides.length) % slides.length;
+      slides[activeIndex].classList.add('active');
+    }
+
+    function openPopup(src) {
+      document.getElementById('popupImage').src = src;
+      document.getElementById('popup').classList.add('active');
+    }
+
+    function closePopup() {
+      document.getElementById('popup').classList.remove('active');
+    }
+
+    document.getElementById('popup').addEventListener('click', function (e) {
+      if (e.target.id === 'popup') closePopup();
+    });
+
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      const updateCounter = () => {
+        const target = +counter.getAttribute('data-target');
+        const current = +counter.innerText;
+        const increment = Math.max(1, Math.ceil(target / 20));
         if (current < target) {
           counter.innerText = current + increment > target ? target : current + increment;
           setTimeout(updateCounter, 60);
