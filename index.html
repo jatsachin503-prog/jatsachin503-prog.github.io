@@ -230,13 +230,13 @@
       overflow: hidden;
     }
 
-    .profile-particle-canvas {
+    .profile-img {
       width: 100%;
-      max-width: 360px;
-      aspect-ratio: 4 / 5;
+      max-width: 330px;
       border-radius: 24px;
+      object-fit: cover;
+      display: block;
       margin: 0 auto;
-      background: rgba(255,255,255,0.02);
     }
 
     .profile-hidden-image {
@@ -513,8 +513,7 @@
       </div>
 
       <div class="profile-wrap">
-        <canvas id="profileParticles" class="profile-particle-canvas"></canvas>
-        <img src="profile.jpg" alt="Sachin Jat" id="profileSource" class="profile-hidden-image" />
+        <img src="profile.jpg" alt="Sachin Jat" class="profile-img" />
         <div class="mini-stats">
           <div class="mini"><strong class="counter" data-target="3">0</strong>Core portfolio projects</div>
           <div class="mini"><strong class="counter" data-target="11">0</strong>LinkedIn certificates</div>
@@ -795,57 +794,7 @@
       liveObserver.observe(el);
     });
 
-    const canvas = document.getElementById('profileParticles');
-    const ctx = canvas.getContext('2d');
-    const sourceImg = document.getElementById('profileSource');
-
-    function initParticlePortrait() {
-      const width = 360;
-      const height = 450;
-      canvas.width = width;
-      canvas.height = height;
-
-      const tempCanvas = document.createElement('canvas');
-      const tempCtx = tempCanvas.getContext('2d');
-      tempCanvas.width = width;
-      tempCanvas.height = height;
-      tempCtx.drawImage(sourceImg, 0, 0, width, height);
-
-      const imgData = tempCtx.getImageData(0, 0, width, height).data;
-      const particles = [];
-      const gap = 6;
-
-      for (let y = 0; y < height; y += gap) {
-        for (let x = 0; x < width; x += gap) {
-          const index = (y * width + x) * 4;
-          const alpha = imgData[index + 3];
-          if (alpha > 120) {
-            particles.push({
-              x: Math.random() * width,
-              y: Math.random() * height,
-              tx: x,
-              ty: y,
-              color: `rgba(${imgData[index]}, ${imgData[index + 1]}, ${imgData[index + 2]}, 0.95)`
-            });
-          }
-        }
-      }
-
-      function animate() {
-        ctx.clearRect(0, 0, width, height);
-        particles.forEach(p => {
-          p.x += (p.tx - p.x) * 0.08;
-          p.y += (p.ty - p.y) * 0.08;
-          ctx.fillStyle = p.color;
-          ctx.fillRect(p.x, p.y, 2.4, 2.4);
-        });
-        requestAnimationFrame(animate);
-      }
-      animate();
-    }
-
-    if (sourceImg.complete) initParticlePortrait();
-    else sourceImg.onload = initParticlePortrait;
+    
   </script>
 </body>
 </html>
