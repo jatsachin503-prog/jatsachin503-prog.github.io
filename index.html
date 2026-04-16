@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sachin Jat | Embedded Systems Portfolio</title>
-  <meta name="description" content="Sachin Jat portfolio website showcasing embedded systems, robotics, hardware troubleshooting, IT support, and technical certifications." />
+  <meta name="description" content="Sachin Jat portfolio website showcasing embedded systems, robotics, hardware troubleshooting, IT support, and technical documentation." />
   <style>
     :root {
       --bg: #020617;
@@ -18,7 +18,6 @@
       --sky2: #0ea5e9;
       --emerald: #34d399;
       --violet: #a78bfa;
-      --amber: #fbbf24;
       --shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
       --radius: 24px;
     }
@@ -72,7 +71,11 @@
       50% { transform: translateY(-22px) translateX(18px); }
     }
 
-    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
     .nav {
       position: sticky;
@@ -110,7 +113,10 @@
       transition: color 0.2s ease, transform 0.2s ease;
     }
 
-    .nav-links a:hover { color: #fff; transform: translateY(-2px); }
+    .nav-links a:hover {
+      color: #fff;
+      transform: translateY(-2px);
+    }
 
     .nav-links a::after {
       content: "";
@@ -124,9 +130,13 @@
       transition: width 0.25s ease;
     }
 
-    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
 
-    .hero, .section { padding: 68px 0; }
+    .hero, .section {
+      padding: 68px 0;
+    }
 
     .hero {
       min-height: 92vh;
@@ -135,15 +145,19 @@
       border-bottom: 1px solid var(--line);
     }
 
-    .hero-grid, .grid-2, .grid-3, .project-grid, .cert-grid, .contact-grid {
+    .hero-grid,
+    .grid-2,
+    .grid-3,
+    .project-grid,
+    .contact-grid {
       display: grid;
       gap: 24px;
     }
 
     .hero-grid { grid-template-columns: 1.25fr 0.85fr; align-items: center; }
     .grid-2 { grid-template-columns: repeat(2, 1fr); }
-    .grid-3, .project-grid { grid-template-columns: repeat(3, 1fr); }
-    .cert-grid { grid-template-columns: repeat(3, 1fr); }
+    .grid-3,
+    .project-grid { grid-template-columns: repeat(3, 1fr); }
     .contact-grid { grid-template-columns: 1.2fr 0.8fr; }
 
     .badge {
@@ -184,7 +198,9 @@
       transition: transform 0.8s ease;
     }
 
-    .reveal.visible h2::after { transform: scaleX(1); }
+    .reveal.visible h2::after {
+      transform: scaleX(1);
+    }
 
     h3 { font-size: 22px; margin: 0 0 8px; }
     h4 { font-size: 18px; margin: 0 0 10px; color: #fff; }
@@ -201,9 +217,15 @@
       transition: all 0.7s ease;
     }
 
-    .reveal.visible .eyebrow { opacity: 1; transform: translateY(0); }
+    .reveal.visible .eyebrow {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-    .lead { font-size: 20px; max-width: 760px; }
+    .lead {
+      font-size: 20px;
+      max-width: 760px;
+    }
 
     .card {
       background: linear-gradient(180deg, var(--panel), var(--panel2));
@@ -225,7 +247,6 @@
       padding: 14px;
       background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
       border: 1px solid var(--line);
-      position: relative;
       overflow: hidden;
     }
 
@@ -253,7 +274,9 @@
       transition: transform 0.3s ease;
     }
 
-    .mini:hover { transform: translateY(-4px); }
+    .mini:hover {
+      transform: translateY(-4px);
+    }
 
     .mini strong {
       display: block;
@@ -261,7 +284,11 @@
       color: #fff;
     }
 
-    .tag-row, .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .tag-row, .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
 
     .tag {
       display: inline-block;
@@ -343,7 +370,11 @@
       border: 1px solid rgba(52, 211, 153, 0.20);
     }
 
-    .resume-note { font-size: 13px; margin-top: 10px; color: #9fb3d1; }
+    .resume-note {
+      font-size: 13px;
+      margin-top: 10px;
+      color: #9fb3d1;
+    }
 
     .contact-box {
       padding: 18px;
@@ -363,7 +394,11 @@
       margin-bottom: 12px;
     }
 
-    .footer { padding: 26px 0 56px; color: #90a3bf; font-size: 14px; }
+    .footer {
+      padding: 26px 0 56px;
+      color: #90a3bf;
+      font-size: 14px;
+    }
 
     .reveal {
       opacity: 0;
@@ -426,15 +461,6 @@
       backdrop-filter: blur(10px);
     }
 
-    .cert-card {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      min-height: 210px;
-    }
-
-    .cert-card p { font-size: 14px; }
-
     .popup {
       position: fixed;
       inset: 0;
@@ -483,7 +509,7 @@
       h1 { font-size: 42px; }
       h2 { font-size: 28px; }
       .typing-wrap { font-size: 20px; }
-      .hero-grid, .grid-2, .grid-3, .project-grid, .cert-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-grid, .grid-2, .grid-3, .project-grid, .contact-grid { grid-template-columns: 1fr; }
       .nav-inner { align-items: flex-start; gap: 12px; flex-direction: column; }
     }
   </style>
@@ -502,7 +528,6 @@
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
-        <a href="#certifications">Certifications</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -541,7 +566,7 @@
         <img src="profile.jpg" alt="Sachin Jat" class="profile-img" />
         <div class="mini-stats">
           <div class="mini"><strong class="counter" data-target="3">0</strong>Core portfolio projects</div>
-          <div class="mini"><strong class="counter" data-target="11">0</strong>LinkedIn certificates</div>
+          <div class="mini"><strong class="counter" data-target="2">0</strong>Study guides</div>
         </div>
       </div>
     </div>
@@ -594,7 +619,10 @@
           </div>
           <p class="live-text" style="margin-top:14px;">Designed and implemented an Arduino-based voltage measurement workflow using ADC and embedded C/C++. I compared results with a real multimeter to validate readings and improve accuracy.</p>
           <div class="tag-row" style="margin-top:14px;">
-            <span class="subtag">ADC</span><span class="subtag">Calibration</span><span class="subtag">Testing</span><span class="subtag">Embedded C/C++</span>
+            <span class="subtag">ADC</span>
+            <span class="subtag">Calibration</span>
+            <span class="subtag">Testing</span>
+            <span class="subtag">Embedded C/C++</span>
           </div>
         </div>
 
@@ -603,11 +631,18 @@
           <h3 style="margin-top:12px;">🤖 Robotics & Automation Exposure</h3>
           <div class="project-media">
             <div class="robot-tag">LIVE SYSTEM</div>
-            <img src="robot-arm.jpg" alt="Industrial robotic arm" class="project-img" onclick="openPopup(this.src)" />
+            <img src="robot-arm.jpg" alt="Industrial robotic arm system" class="project-img" onclick="openPopup(this.src)" />
           </div>
-          <p class="live-text" style="margin-top:14px;">This robotics section now uses your new industrial robotic arm image. It presents a much stronger automation visual and gives your portfolio a more modern engineering identity.</p>
+          <p class="live-text" style="margin-top:14px;">
+            This section highlights my interest in robotics, automation, and industrial control systems.
+            The robotic arm image strengthens the visual presentation of automation-focused engineering work
+            and gives this portfolio a more advanced and professional identity.
+          </p>
           <div class="tag-row" style="margin-top:14px;">
-            <span class="subtag">Robotics</span><span class="subtag">Automation</span><span class="subtag">Control Systems</span><span class="subtag">Hardware Systems</span>
+            <span class="subtag">Robotics</span>
+            <span class="subtag">Automation</span>
+            <span class="subtag">Industrial Systems</span>
+            <span class="subtag">Control Logic</span>
           </div>
         </div>
 
@@ -616,7 +651,10 @@
           <h3 style="margin-top:12px;">📘 Java OOP Complete Study Guides</h3>
           <p class="live-text" style="margin-top:14px;">Created structured Java study guides covering both fundamentals and advanced OOP concepts for academic learning, revision, and interview preparation.</p>
           <div class="tag-row" style="margin-top:14px;">
-            <span class="subtag">Java Basics</span><span class="subtag">OOP</span><span class="subtag">Multithreading</span><span class="subtag">Streams</span>
+            <span class="subtag">Java Basics</span>
+            <span class="subtag">OOP</span>
+            <span class="subtag">Multithreading</span>
+            <span class="subtag">Streams</span>
           </div>
           <div class="card" style="margin-top:18px;padding:18px;">
             <h4>Guide 1 — Java Fundamentals</h4>
@@ -652,26 +690,6 @@
     </div>
   </section>
 
-  <section id="certifications" class="section reveal">
-    <div class="container">
-      <div class="eyebrow" style="color:#ddd6fe;">Certifications</div>
-      <h2 class="word-reveal">LinkedIn Learning Certificates</h2>
-      <div class="cert-grid" style="margin-top:24px;">
-        <div class="card cert-card"><h4>CompTIA A+ Core 1</h4><p>Technical Support, Networking, and foundational IT skills.</p><a class="btn btn-secondary" href="comptia-a-core-1.pdf" download>Open Certificate</a></div>
-        <div class="card cert-card"><h4>CompTIA A+ Core 2</h4><p>Core support concepts for practical IT environments.</p><a class="btn btn-secondary" href="comptia-a-core-2.pdf" download>Open Certificate</a></div>
-        <div class="card cert-card"><h4>ISC2 CC Cert Prep</h4><p>Cybersecurity fundamentals and security awareness.</p><a class="btn btn-secondary" href="isc2-cc-cert-prep.pdf" download>Open Certificate</a></div>
-        <div class="card cert-card"><h4>Windows 10 Networking</h4><p>Networking configuration and Windows support skills.</p><a class="btn btn-secondary" href="windows-10-networking.pdf" download>Open Certificate</a></div>
-        <div class="card cert-card"><h4>Cloud & Virtualization</h4><p>Cloud computing and virtualization concepts for support roles.</p><a class="btn btn-secondary" href="cloud-virtualization-it-support.pdf" download>Open Certificate</a></div>
-        <div class="card cert-card"><h4>IT Service Desk Careers</h4><p>Service desk path planning and support-role readiness.</p><a class="btn btn-secondary" href="it-service-desk-careers.pdf" download>Open Certificate</a></div>
-        <div class="card cert-card"><h4>ITIL 4 Foundation Concepts</h4><p>IT service management fundamentals and applied concepts.</p><a class="btn btn-secondary" href="itil4-foundation-concepts.pdf" download>Open Certificate</a></div>
-        <div class="card cert-card"><h4>Customer Service Foundations</h4><p>Customer service and communication fundamentals.</p><a class="btn btn-secondary" href="customer-service-foundations.pdf" download>Open Certificate</a></div>
-        <div class="card cert-card"><h4>Negotiation Foundations</h4><p>Professional communication and negotiation awareness.</p><a class="btn btn-secondary" href="negotiation-foundations.pdf" download>Open Certificate</a></div>
-        <div class="card cert-card"><h4>Recruiting Foundations</h4><p>Understanding recruiting workflows and business communication.</p><a class="btn btn-secondary" href="recruiting-foundations.pdf" download>Open Certificate</a></div>
-        <div class="card cert-card"><h4>Data Engineering Foundations</h4><p>Introductory data engineering concepts and information technology foundations.</p><a class="btn btn-secondary" href="data-engineering-foundations.pdf" download>Open Certificate</a></div>
-      </div>
-    </div>
-  </section>
-
   <section id="contact" class="section reveal">
     <div class="container card">
       <div class="contact-grid">
@@ -680,7 +698,9 @@
           <h2 class="word-reveal">Open to Technical Opportunities</h2>
           <p class="live-text" style="margin-top:12px;">I am currently open to embedded systems, hardware support, robotics-related, and IT support opportunities where I can contribute practical skills and keep growing through real project work.</p>
           <div class="tag-row" style="margin-top:16px;">
-            <span class="subtag">Embedded Systems</span><span class="subtag">Hardware Technician</span><span class="subtag">IT Support</span>
+            <span class="subtag">Embedded Systems</span>
+            <span class="subtag">Hardware Technician</span>
+            <span class="subtag">IT Support</span>
           </div>
         </div>
         <div class="contact-box">
@@ -744,6 +764,7 @@
         if (entry.isIntersecting) entry.target.classList.add("visible");
       });
     }, { threshold: 0.12 });
+
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     const progressBar = document.getElementById('scrollProgress');
@@ -792,11 +813,13 @@
         heading.appendChild(span);
       });
       heading.dataset.processed = 'true';
+
       const headingObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) entry.target.classList.add('visible');
         });
       }, { threshold: 0.4 });
+
       headingObserver.observe(heading);
     });
 
@@ -804,9 +827,11 @@
       const original = el.textContent.trim();
       el.dataset.original = original;
       el.textContent = '';
+
       const liveObserver = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
           if (!entry.isIntersecting) return;
+
           let i = 0;
           const text = entry.target.dataset.original;
           const typer = setInterval(() => {
@@ -814,9 +839,11 @@
             i++;
             if (i >= text.length) clearInterval(typer);
           }, 10);
+
           obs.unobserve(entry.target);
         });
       }, { threshold: 0.25 });
+
       liveObserver.observe(el);
     });
   </script>
