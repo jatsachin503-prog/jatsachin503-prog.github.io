@@ -1,800 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sachin Jat | Embedded Systems Portfolio</title>
-  <meta name="description" content="Sachin Jat portfolio website showcasing embedded systems, robotics, hardware troubleshooting, IT support, and technical certifications." />
-  <style>
-    :root {
-      --bg: #020617;
-      --bg2: #0b1220;
-      --panel: rgba(255, 255, 255, 0.06);
-      --panel2: rgba(255, 255, 255, 0.04);
-      --line: rgba(255, 255, 255, 0.10);
-      --text: #e5eefc;
-      --muted: #b7c4d9;
-      --sky: #38bdf8;
-      --sky2: #0ea5e9;
-      --emerald: #34d399;
-      --violet: #a78bfa;
-      --amber: #fbbf24;
-      --shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
-      --radius: 24px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: Inter, Segoe UI, Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 28%),
-        radial-gradient(circle at top right, rgba(52, 211, 153, 0.09), transparent 24%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
-      line-height: 1.65;
-      overflow-x: hidden;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    img, canvas { max-width: 100%; display: block; }
-
-    .scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 3px;
-      width: 0%;
-      z-index: 1200;
-      background: linear-gradient(90deg, var(--sky), var(--emerald));
-      box-shadow: 0 0 18px rgba(56, 189, 248, 0.45);
-      transition: width 0.08s linear;
-    }
-
-    .bg-orb {
-      position: fixed;
-      border-radius: 999px;
-      filter: blur(95px);
-      opacity: 0.18;
-      z-index: -1;
-      animation: floatOrb 14s ease-in-out infinite;
-      pointer-events: none;
-    }
-
-    .orb-1 { width: 290px; height: 290px; background: var(--sky); top: 70px; left: -80px; }
-    .orb-2 { width: 340px; height: 340px; background: var(--emerald); top: 260px; right: -100px; animation-delay: 2.5s; }
-    .orb-3 { width: 230px; height: 230px; background: var(--violet); bottom: 70px; left: 35%; animation-delay: 5s; }
-
-    @keyframes floatOrb {
-      0%, 100% { transform: translateY(0) translateX(0); }
-      50% { transform: translateY(-22px) translateX(18px); }
-    }
-
-    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
-
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(14px);
-      background: rgba(2, 6, 23, 0.76);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 0;
-      gap: 16px;
-    }
-
-    .brand {
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: 0.02em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      position: relative;
-      color: var(--muted);
-      font-size: 14px;
-      transition: color 0.2s ease, transform 0.2s ease;
-    }
-
-    .nav-links a:hover { color: #fff; transform: translateY(-2px); }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -5px;
-      width: 0;
-      height: 2px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--sky), var(--emerald));
-      transition: width 0.25s ease;
-    }
-
-    .nav-links a:hover::after { width: 100%; }
-
-    .hero, .section { padding: 68px 0; }
-
-    .hero {
-      min-height: 92vh;
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .hero-grid, .grid-2, .grid-3, .project-grid, .cert-grid, .contact-grid {
-      display: grid;
-      gap: 24px;
-    }
-
-    .hero-grid { grid-template-columns: 1.25fr 0.85fr; align-items: center; }
-    .grid-2 { grid-template-columns: repeat(2, 1fr); }
-    .grid-3, .project-grid { grid-template-columns: repeat(3, 1fr); }
-    .cert-grid { grid-template-columns: repeat(3, 1fr); }
-    .contact-grid { grid-template-columns: 1.2fr 0.8fr; }
-
-    .badge {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      background: rgba(56, 189, 248, 0.1);
-      color: #bfe9ff;
-      font-size: 14px;
-    }
-
-    h1 {
-      font-size: 58px;
-      line-height: 1.02;
-      margin: 16px 0 10px;
-    }
-
-    h2 {
-      font-size: 34px;
-      margin: 0 0 8px;
-      position: relative;
-      display: inline-block;
-      padding-bottom: 8px;
-    }
-
-    h2::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 72%;
-      height: 3px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--sky), var(--emerald));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.8s ease;
-    }
-
-    .reveal.visible h2::after { transform: scaleX(1); }
-
-    h3 { font-size: 22px; margin: 0 0 8px; }
-    h4 { font-size: 18px; margin: 0 0 10px; color: #fff; }
-    p { margin: 0; color: var(--muted); }
-
-    .eyebrow {
-      font-size: 12px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: #b4ecff;
-      margin-bottom: 10px;
-      opacity: 0;
-      transform: translateY(18px);
-      transition: all 0.7s ease;
-    }
-
-    .reveal.visible .eyebrow { opacity: 1; transform: translateY(0); }
-
-    .lead { font-size: 20px; max-width: 760px; }
-
-    .card {
-      background: linear-gradient(180deg, var(--panel), var(--panel2));
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: var(--shadow);
-      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-8px) scale(1.01);
-      box-shadow: 0 26px 56px rgba(0, 0, 0, 0.30);
-      border-color: rgba(56, 189, 248, 0.28);
-    }
-
-    .profile-wrap {
-      border-radius: 28px;
-      padding: 14px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
-      border: 1px solid var(--line);
-      position: relative;
-      min-height: 430px;
-      overflow: hidden;
-    }
-
-    .profile-img {
-      width: 100%;
-      max-width: 330px;
-      border-radius: 24px;
-      object-fit: cover;
-      display: block;
-      margin: 0 auto;
-    }
-
-    .profile-hidden-image {
-      display: none;
-    }
-
-    .mini-stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .mini {
-      padding: 14px;
-      border-radius: 16px;
-      background: rgba(0, 0, 0, 0.18);
-      border: 1px solid var(--line);
-      transition: transform 0.3s ease;
-    }
-
-    .mini:hover { transform: translateY(-4px); }
-
-    .mini strong {
-      display: block;
-      font-size: 22px;
-      color: #fff;
-    }
-
-    .tag-row, .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
-
-    .tag {
-      display: inline-block;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: rgba(56, 189, 248, 0.10);
-      border: 1px solid rgba(56, 189, 248, 0.20);
-      color: #d6f3ff;
-      font-size: 14px;
-    }
-
-    .subtag {
-      display: inline-block;
-      padding: 6px 11px;
-      border-radius: 999px;
-      background: rgba(0, 0, 0, 0.20);
-      border: 1px solid var(--line);
-      color: #d8dfec;
-      font-size: 12px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 13px 18px;
-      border-radius: 16px;
-      color: white;
-      font-weight: 700;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -120%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
-      transition: left 0.6s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.18);
-    }
-
-    .btn:hover::before { left: 120%; }
-    .btn-primary { background: linear-gradient(135deg, var(--sky), var(--sky2)); border: none; }
-    .btn-secondary { background: rgba(255, 255, 255, 0.05); }
-    .btn-secondary:hover { background: rgba(255, 255, 255, 0.09); }
-
-    .typing-wrap {
-      min-height: 42px;
-      margin: 8px 0 16px;
-      color: #aee6ff;
-      font-weight: 800;
-      font-size: 24px;
-    }
-
-    .typing-text {
-      border-right: 2px solid #7dd3fc;
-      white-space: nowrap;
-      padding-right: 6px;
-    }
-
-    .project-category {
-      display: inline-block;
-      padding: 6px 11px;
-      border-radius: 999px;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #d5fff3;
-      background: rgba(52, 211, 153, 0.10);
-      border: 1px solid rgba(52, 211, 153, 0.20);
-    }
-
-    .resume-note { font-size: 13px; margin-top: 10px; color: #9fb3d1; }
-
-    .contact-box {
-      padding: 18px;
-      border-radius: 18px;
-      background: rgba(0, 0, 0, 0.18);
-      border: 1px solid var(--line);
-    }
-
-    .input-like {
-      display: block;
-      width: 100%;
-      padding: 14px 16px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--line);
-      color: var(--text);
-      margin-bottom: 12px;
-    }
-
-    .footer { padding: 26px 0 56px; color: #90a3bf; font-size: 14px; }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .project-media {
-      position: relative;
-      margin-top: 14px;
-    }
-
-    .project-img {
-      width: 100%;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
-      cursor: pointer;
-      transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
-      filter: contrast(1.05) saturate(1.05);
-    }
-
-    .project-img:hover {
-      transform: translateY(-5px) scale(1.01);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.28);
-    }
-
-    .cert-card {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      min-height: 210px;
-    }
-
-    .cert-card p { font-size: 14px; }
-
-    .popup {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.82);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      padding: 20px;
-    }
-
-    .popup img {
-      max-width: 95%;
-      max-height: 90vh;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 30px 60px rgba(0,0,0,0.35);
-    }
-
-    .popup.active { display: flex; }
-
-    .popup-close {
-      position: absolute;
-      top: 20px;
-      right: 24px;
-      font-size: 34px;
-      color: white;
-      cursor: pointer;
-    }
-
-    .word-reveal span {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(18px);
-    }
-
-    .word-reveal.visible span {
-      animation: wordRise 0.55s ease forwards;
-    }
-
-    @keyframes wordRise {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 960px) {
-      h1 { font-size: 42px; }
-      h2 { font-size: 28px; }
-      .typing-wrap { font-size: 20px; }
-      .hero-grid, .grid-2, .grid-3, .project-grid, .cert-grid, .contact-grid { grid-template-columns: 1fr; }
-      .nav-inner { align-items: flex-start; gap: 12px; flex-direction: column; }
-      .profile-wrap { min-height: auto; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sachin Jat | Portfolio</title>
+
+<style>
+
+/* ===== GLOBAL ===== */
+body {
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background:#0f172a;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+section {
+  padding:80px 10%;
+}
+
+h1,h2,h3 {
+  margin-bottom:10px;
+}
+
+/* ===== SCROLL BAR ===== */
+#progressBar {
+  position:fixed;
+  top:0;
+  left:0;
+  height:3px;
+  background:#38bdf8;
+  width:0%;
+  z-index:999;
+}
+
+/* ===== HERO ===== */
+.hero {
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.hero img {
+  width:150px;
+  border-radius:50%;
+  margin-bottom:20px;
+}
+
+.hero h1 {
+  font-size:42px;
+}
+
+/* ===== CARD ===== */
+.card {
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(10px);
+  border-radius:20px;
+  padding:20px;
+  margin-top:30px;
+  transition:0.4s;
+}
+
+.card:hover {
+  transform:translateY(-10px);
+}
+
+/* ===== ROBOT ===== */
+.robot-img {
+  width:100%;
+  border-radius:15px;
+  transition:0.4s;
+  cursor:pointer;
+}
+
+.robot-img:hover {
+  transform:scale(1.05);
+}
+
+/* ===== BUTTON ===== */
+.btn {
+  display:inline-block;
+  padding:10px 18px;
+  background:#38bdf8;
+  color:#000;
+  border-radius:20px;
+  text-decoration:none;
+  margin-top:10px;
+}
+
+/* ===== POPUP ===== */
+.popup {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  background:rgba(0,0,0,0.8);
+}
+
+.popup img {
+  max-width:90%;
+  border-radius:10px;
+}
+
+/* ===== SCROLL ANIMATION ===== */
+.fade {
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+.fade.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
+</style>
 </head>
+
 <body>
-  <div class="scroll-progress" id="scrollProgress"></div>
-  <div class="bg-orb orb-1"></div>
-  <div class="bg-orb orb-2"></div>
-  <div class="bg-orb orb-3"></div>
 
-  <nav class="nav">
-    <div class="container nav-inner">
-      <div class="brand">Sachin Jat</div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
+<div id="progressBar"></div>
 
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="badge">Toronto, ON · Engineering Portfolio</div>
-        <h1>Sachin Jat</h1>
-        <div class="typing-wrap">
-          <span class="typing-text" id="typingText"></span>
-        </div>
-        <p class="lead live-text">
-          Computer Engineering graduate focused on embedded systems, hardware troubleshooting, IT support, and practical engineering workflows. I build systems, test them, document them, and present them in a clean, professional way.
-        </p>
-        <div class="tag-row" style="margin-top: 18px;">
-          <span class="tag">Arduino</span>
-          <span class="tag">C++</span>
-          <span class="tag">Embedded Systems</span>
-          <span class="tag">Hardware Debugging</span>
-          <span class="tag">IT Support</span>
-          <span class="tag">Networking</span>
-          <span class="tag">Cybersecurity</span>
-        </div>
-        <div class="cta-row" style="margin-top: 24px;">
-          <a class="btn btn-primary" href="#contact">Hire Me</a>
-          <a class="btn btn-secondary" href="Sachin_Jat_Resume.docx" download>Download Resume</a>
-          <a class="btn btn-secondary" href="https://github.com/jatsachin503-prog" target="_blank">GitHub</a>
-          <a class="btn btn-secondary" href="https://www.linkedin.com/in/sachinjat" target="_blank">LinkedIn</a>
-        </div>
-        <p class="resume-note">Resume download uses the file included in this website package.</p>
-      </div>
+<!-- HERO -->
+<section class="hero">
+  <img src="profile.jpg">
+  <h1 id="typing"></h1>
+  <p>Computer Engineering Graduate | Embedded Systems | Robotics</p>
+</section>
 
-      <div class="profile-wrap">
-        <img src="profile.jpg" alt="Sachin Jat" class="profile-img" />
-        <div class="mini-stats">
-          <div class="mini"><strong class="counter" data-target="3">0</strong>Core portfolio projects</div>
-          <div class="mini"><strong class="counter" data-target="11">0</strong>LinkedIn certificates</div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- ABOUT -->
+<section class="fade">
+  <h2>About Me</h2>
+  <p>
+    I am a Computer Engineering graduate passionate about embedded systems,
+    robotics, and real-world engineering solutions. I enjoy building systems,
+    testing them, and solving technical problems efficiently.
+  </p>
+</section>
 
-  <section id="about" class="section reveal">
-    <div class="container">
-      <div class="eyebrow">Profile</div>
-      <h2 class="word-reveal">About Me</h2>
-      <div class="grid-3" style="margin-top:24px;">
-        <div class="card">
-          <h3>Who I Am</h3>
-          <p class="live-text">I am a Computer Engineering graduate from Sheridan College with a strong interest in embedded systems, electronics, robotics, and technical support. My work combines practical hardware understanding with disciplined troubleshooting and technical documentation.</p>
-        </div>
-        <div class="card">
-          <h3>What I Build</h3>
-          <p class="live-text">I enjoy building projects that move from concept to testing, such as Arduino-based measurement systems and automation-focused prototypes. I also create structured study guides and learning assets that show both technical understanding and communication skills.</p>
-        </div>
-        <div class="card">
-          <h3>Career Direction</h3>
-          <p class="live-text">I am looking for opportunities in embedded systems, hardware support, robotics-related environments, and entry-level IT roles where I can contribute, learn quickly, and grow through hands-on engineering work.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- PROJECT -->
+<section class="fade">
 
-  <section id="skills" class="section reveal">
-    <div class="container">
-      <div class="eyebrow">Technical Profile</div>
-      <h2 class="word-reveal">Skills & Strengths</h2>
-      <div class="grid-2" style="margin-top:24px;">
-        <div class="card"><h3>Programming</h3><p class="live-text">C, C++, Python, and Java for academic, practical, and project-based work.</p></div>
-        <div class="card"><h3>Embedded Systems</h3><p class="live-text">Arduino, microcontrollers, ADC concepts, sensors, actuators, and real-time project thinking.</p></div>
-        <div class="card"><h3>Hardware</h3><p class="live-text">Circuit understanding, electronics handling, hardware debugging, testing, and multimeter-based validation.</p></div>
-        <div class="card"><h3>IT & Support</h3><p class="live-text">Technical support, Windows, networking fundamentals, service desk understanding, and troubleshooting workflows.</p></div>
-      </div>
-    </div>
-  </section>
+<div class="card">
+  <h2>🤖 Robotics System</h2>
 
-  <section id="projects" class="section reveal">
-    <div class="container">
-      <div class="eyebrow" style="color:#bbf7d0;">Portfolio</div>
-      <h2 class="word-reveal">Featured Projects</h2>
-      <div class="project-grid" style="margin-top:24px;">
-        <div class="card">
-          <div class="project-category">Embedded Systems</div>
-          <h3 style="margin-top:12px;">⚡ Arduino Digital Multimeter Prototype</h3>
-          <div class="project-media">
-            <img src="mm2.jpeg" alt="Arduino setup" class="project-img" onclick="openPopup(this.src)" />
-          </div>
-          <p class="live-text" style="margin-top:14px;">Designed and implemented an Arduino-based voltage measurement workflow using ADC and embedded C/C++. I compared results with a real multimeter to validate readings and improve accuracy.</p>
-          <div class="tag-row" style="margin-top:14px;">
-            <span class="subtag">ADC</span><span class="subtag">Calibration</span><span class="subtag">Testing</span><span class="subtag">Embedded C/C++</span>
-          </div>
-        </div>
+  <img src="robot-arm.jpg" class="robot-img" onclick="openPopup(this.src)">
 
-        <div class="card">
-          <div class="project-category">Robotics</div>
-          <h3 style="margin-top:12px;">🤖 Robotics & Automation Exposure</h3>
-          <div class="project-media">
-            <img src="robot-arm.jpg" alt="Industrial robotic arm" class="project-img" onclick="openPopup(this.src)" />
-          </div>
-          <p class="live-text" style="margin-top:14px;">This section now highlights my robotics interest visually with a clean robotics image. It supports my broader interest in automation, sensing, control logic, and real-world hardware systems. Replace this later with your own robot build photo whenever you want.</p>
-          <div class="tag-row" style="margin-top:14px;">
-            <span class="subtag">Robotics</span><span class="subtag">Automation</span><span class="subtag">Control Systems</span><span class="subtag">Hardware Systems</span>
-          </div>
-        </div>
+  <p>
+    Industrial robotic system representing automation, control systems,
+    and real-world engineering applications.
+  </p>
 
-        <div class="card">
-          <div class="project-category">Technical Documentation</div>
-          <h3 style="margin-top:12px;">📘 Java OOP Complete Study Guides</h3>
-          <p class="live-text" style="margin-top:14px;">Created structured Java study guides covering both fundamentals and advanced OOP concepts for academic learning, revision, and interview preparation.</p>
-          <div class="tag-row" style="margin-top:14px;">
-            <span class="subtag">Java Basics</span><span class="subtag">OOP</span><span class="subtag">Multithreading</span><span class="subtag">Streams</span>
-          </div>
-          <div class="card" style="margin-top:18px;padding:18px;">
-            <h4>Guide 1 — Java Fundamentals</h4>
-            <p>Core Java concepts, variables, loops, classes, methods, arrays, exceptions, and foundations.</p>
-            <a class="btn btn-primary" href="Java_Study_Guide_1.docx" download>Download Guide 1</a>
-          </div>
-          <div class="card" style="margin-top:14px;padding:18px;">
-            <h4>Guide 2 — Advanced Java & OOP</h4>
-            <p>Inheritance, polymorphism, interfaces, streams, generics, lambdas, casting, and design relationships.</p>
-            <a class="btn btn-primary" href="Java_Study_Guide_2.docx" download>Download Guide 2</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <a href="#" class="btn">View Project</a>
+</div>
 
-  <section id="experience" class="section reveal">
-    <div class="container">
-      <div class="eyebrow" style="color:#fde68a;">Experience</div>
-      <h2 class="word-reveal">Leadership & Technical Support</h2>
-      <div class="grid-2" style="margin-top:24px;">
-        <div class="card">
-          <h3>Front Manager</h3>
-          <p style="color:#fde68a;margin-bottom:12px;">Doaba Sweets & Restaurant</p>
-          <p class="live-text">Managed daily operations, supervised a 20-person team, maintained high transaction accuracy, and handled operational issues in a fast-paced environment. This role strengthened discipline, reliability, communication, and process-oriented thinking.</p>
-        </div>
-        <div class="card">
-          <h3>Volunteer Club Coordinator</h3>
-          <p style="color:#fde68a;margin-bottom:12px;">Aeronautical Club, Sheridan College</p>
-          <p class="live-text">Coordinated schedules, student activities, and technical workshop support while working closely with peers in an engineering-focused setting.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+</section>
 
-  <section id="certifications" class="section reveal">
-    <div class="container">
-      <div class="eyebrow" style="color:#ddd6fe;">Certifications</div>
-      <h2 class="word-reveal">LinkedIn Learning Certificates</h2>
-      <div class="cert-grid" style="margin-top:24px;">
-        <div class="card cert-card"><h4>CompTIA A+ Core 1</h4><p>Technical Support, Networking, and foundational IT skills.</p><a class="btn btn-secondary" href="comptia-a-core-1.pdf" download>Open Certificate</a></div>
-        <div class="card cert-card"><h4>CompTIA A+ Core 2</h4><p>Core support concepts for practical IT environments.</p><a class="btn btn-secondary" href="comptia-a-core-2.pdf" download>Open Certificate</a></div>
-        <div class="card cert-card"><h4>ISC2 CC Cert Prep</h4><p>Cybersecurity fundamentals and security awareness.</p><a class="btn btn-secondary" href="isc2-cc-cert-prep.pdf" download>Open Certificate</a></div>
-        <div class="card cert-card"><h4>Windows 10 Networking</h4><p>Networking configuration and Windows support skills.</p><a class="btn btn-secondary" href="windows-10-networking.pdf" download>Open Certificate</a></div>
-        <div class="card cert-card"><h4>Cloud & Virtualization</h4><p>Cloud computing and virtualization concepts for support roles.</p><a class="btn btn-secondary" href="cloud-virtualization-it-support.pdf" download>Open Certificate</a></div>
-        <div class="card cert-card"><h4>IT Service Desk Careers</h4><p>Service desk path planning and support-role readiness.</p><a class="btn btn-secondary" href="it-service-desk-careers.pdf" download>Open Certificate</a></div>
-        <div class="card cert-card"><h4>ITIL 4 Foundation Concepts</h4><p>IT service management fundamentals and applied concepts.</p><a class="btn btn-secondary" href="itil4-foundation-concepts.pdf" download>Open Certificate</a></div>
-        <div class="card cert-card"><h4>Customer Service Foundations</h4><p>Customer service and communication fundamentals.</p><a class="btn btn-secondary" href="customer-service-foundations.pdf" download>Open Certificate</a></div>
-        <div class="card cert-card"><h4>Negotiation Foundations</h4><p>Professional communication and negotiation awareness.</p><a class="btn btn-secondary" href="negotiation-foundations.pdf" download>Open Certificate</a></div>
-        <div class="card cert-card"><h4>Recruiting Foundations</h4><p>Understanding recruiting workflows and business communication.</p><a class="btn btn-secondary" href="recruiting-foundations.pdf" download>Open Certificate</a></div>
-        <div class="card cert-card"><h4>Data Engineering Foundations</h4><p>Introductory data engineering concepts and information technology foundations.</p><a class="btn btn-secondary" href="data-engineering-foundations.pdf" download>Open Certificate</a></div>
-      </div>
-    </div>
-  </section>
+<!-- STUDY GUIDE -->
+<section class="fade">
 
-  <section id="contact" class="section reveal">
-    <div class="container card">
-      <div class="contact-grid">
-        <div>
-          <div class="eyebrow">Let's Connect</div>
-          <h2 class="word-reveal">Open to Technical Opportunities</h2>
-          <p class="live-text" style="margin-top:12px;">I am currently open to embedded systems, hardware support, robotics-related, and IT support opportunities where I can contribute practical skills and keep growing through real project work.</p>
-          <div class="tag-row" style="margin-top:16px;">
-            <span class="subtag">Embedded Systems</span><span class="subtag">Hardware Technician</span><span class="subtag">IT Support</span>
-          </div>
-        </div>
-        <div class="contact-box">
-          <input class="input-like" value="Sachin Jat" readonly />
-          <input class="input-like" value="sachinjat052002@gmail.com" readonly />
-          <input class="input-like" value="Toronto, ON" readonly />
-          <a class="btn btn-primary" style="width:100%;text-align:center;" href="mailto:sachinjat052002@gmail.com?subject=Opportunity for Sachin Jat">Send Email</a>
-          <div class="cta-row" style="margin-top:12px;">
-            <a class="btn btn-secondary" href="https://github.com/jatsachin503-prog" target="_blank">GitHub</a>
-            <a class="btn btn-secondary" href="https://www.linkedin.com/in/sachinjat" target="_blank">LinkedIn</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="card">
+  <h2>📘 Java Study Guides</h2>
 
-  <div class="container footer">© 2026 Sachin Jat · Portfolio Website</div>
+  <a href="Java_Study_Guide_1.docx" class="btn">Download Guide 1</a>
+  <a href="Java_Study_Guide_2.docx" class="btn">Download Guide 2</a>
 
-  <div class="popup" id="popup">
-    <span class="popup-close" onclick="closePopup()">&times;</span>
-    <img id="popupImage" src="" alt="Preview" />
-  </div>
+</div>
 
-  <script>
-    const roles = [
-      "Computer Engineering Graduate",
-      "Embedded Systems Builder",
-      "Hardware & IT Support Focused",
-      "Technical Documentation Creator"
-    ];
+</section>
 
-    let roleIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
-    const typingTarget = document.getElementById("typingText");
+<!-- RESUME -->
+<section class="fade">
 
-    function typeRole() {
-      const currentRole = roles[roleIndex];
-      if (!deleting) {
-        typingTarget.textContent = currentRole.substring(0, charIndex + 1);
-        charIndex++;
-        if (charIndex === currentRole.length) {
-          deleting = true;
-          setTimeout(typeRole, 1200);
-          return;
-        }
-      } else {
-        typingTarget.textContent = currentRole.substring(0, charIndex - 1);
-        charIndex--;
-        if (charIndex === 0) {
-          deleting = false;
-          roleIndex = (roleIndex + 1) % roles.length;
-        }
-      }
-      setTimeout(typeRole, deleting ? 40 : 75);
+<div class="card">
+  <h2>📄 Resume</h2>
+
+  <a href="Sachin_Jat_Resume.docx" class="btn">Download Resume</a>
+
+</div>
+
+</section>
+
+<!-- POPUP -->
+<div class="popup" id="popup" onclick="closePopup()">
+  <img id="popupImg">
+</div>
+
+<script>
+
+/* SCROLL BAR */
+window.onscroll = function() {
+  let winScroll = document.documentElement.scrollTop;
+  let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  let scrolled = (winScroll / height) * 100;
+  document.getElementById("progressBar").style.width = scrolled + "%";
+};
+
+/* TYPE EFFECT */
+let text = "Hi, I'm Sachin Jat";
+let i = 0;
+
+function typing(){
+  if(i < text.length){
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typing, 60);
+  }
+}
+typing();
+
+/* FADE ANIMATION */
+const faders = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', () => {
+  faders.forEach(el => {
+    if(el.getBoundingClientRect().top < window.innerHeight - 100){
+      el.classList.add('show');
     }
-    typeRole();
+  });
+});
 
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+/* POPUP */
+function openPopup(src){
+  document.getElementById("popup").style.display="flex";
+  document.getElementById("popupImg").src=src;
+}
 
-    const progressBar = document.getElementById('scrollProgress');
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      progressBar.style.width = progress + '%';
-    });
+function closePopup(){
+  document.getElementById("popup").style.display="none";
+}
 
-    function openPopup(src) {
-      document.getElementById('popupImage').src = src;
-      document.getElementById('popup').classList.add('active');
-    }
+</script>
 
-    function closePopup() {
-      document.getElementById('popup').classList.remove('active');
-    }
-
-    document.getElementById('popup').addEventListener('click', function (e) {
-      if (e.target.id === 'popup') closePopup();
-    });
-
-    const counters = document.querySelectorAll('.counter');
-    counters.forEach(counter => {
-      const updateCounter = () => {
-        const target = +counter.getAttribute('data-target');
-        const current = +counter.innerText;
-        const increment = Math.max(1, Math.ceil(target / 20));
-        if (current < target) {
-          counter.innerText = current + increment > target ? target : current + increment;
-          setTimeout(updateCounter, 60);
-        }
-      };
-      updateCounter();
-    });
-
-    document.querySelectorAll('.word-reveal').forEach((heading) => {
-      if (heading.dataset.processed === 'true') return;
-      const text = heading.textContent.trim();
-      heading.textContent = '';
-      text.split(' ').forEach((word, index) => {
-        const span = document.createElement('span');
-        span.textContent = word + ' ';
-        span.style.animationDelay = `${index * 0.08}s`;
-        heading.appendChild(span);
-      });
-      heading.dataset.processed = 'true';
-      const headingObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-      }, { threshold: 0.4 });
-      headingObserver.observe(heading);
-    });
-
-    document.querySelectorAll('.live-text').forEach((el) => {
-      const original = el.textContent.trim();
-      el.dataset.original = original;
-      el.textContent = '';
-      const liveObserver = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          let i = 0;
-          const text = entry.target.dataset.original;
-          const typer = setInterval(() => {
-            entry.target.textContent = text.slice(0, i + 1);
-            i++;
-            if (i >= text.length) clearInterval(typer);
-          }, 10);
-          obs.unobserve(entry.target);
-        });
-      }, { threshold: 0.25 });
-      liveObserver.observe(el);
-    });
-
-    
-  </script>
 </body>
 </html>
