@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sachin Jat | Embedded Systems Portfolio</title>
-  <meta
-    name="description"
-    content="Sachin Jat portfolio website showcasing embedded systems, robotics, hardware troubleshooting, and IT support projects."
-  />
+  <meta name="description" content="Sachin Jat portfolio website showcasing embedded systems, robotics, hardware troubleshooting, IT support, and technical certifications." />
   <style>
     :root {
       --bg: #020617;
@@ -21,6 +18,7 @@
       --sky2: #0ea5e9;
       --emerald: #34d399;
       --violet: #a78bfa;
+      --amber: #fbbf24;
       --shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
       --radius: 24px;
     }
@@ -40,15 +38,8 @@
       overflow-x: hidden;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img, video {
-      max-width: 100%;
-      display: block;
-    }
+    a { color: inherit; text-decoration: none; }
+    img, canvas { max-width: 100%; display: block; }
 
     .scroll-progress {
       position: fixed;
@@ -72,42 +63,16 @@
       pointer-events: none;
     }
 
-    .orb-1 {
-      width: 290px;
-      height: 290px;
-      background: var(--sky);
-      top: 70px;
-      left: -80px;
-    }
-
-    .orb-2 {
-      width: 340px;
-      height: 340px;
-      background: var(--emerald);
-      top: 260px;
-      right: -100px;
-      animation-delay: 2.5s;
-    }
-
-    .orb-3 {
-      width: 230px;
-      height: 230px;
-      background: var(--violet);
-      bottom: 70px;
-      left: 35%;
-      animation-delay: 5s;
-    }
+    .orb-1 { width: 290px; height: 290px; background: var(--sky); top: 70px; left: -80px; }
+    .orb-2 { width: 340px; height: 340px; background: var(--emerald); top: 260px; right: -100px; animation-delay: 2.5s; }
+    .orb-3 { width: 230px; height: 230px; background: var(--violet); bottom: 70px; left: 35%; animation-delay: 5s; }
 
     @keyframes floatOrb {
       0%, 100% { transform: translateY(0) translateX(0); }
       50% { transform: translateY(-22px) translateX(18px); }
     }
 
-    .container {
-      max-width: 1140px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 
     .nav {
       position: sticky;
@@ -145,10 +110,7 @@
       transition: color 0.2s ease, transform 0.2s ease;
     }
 
-    .nav-links a:hover {
-      color: #fff;
-      transform: translateY(-2px);
-    }
+    .nav-links a:hover { color: #fff; transform: translateY(-2px); }
 
     .nav-links a::after {
       content: "";
@@ -162,14 +124,9 @@
       transition: width 0.25s ease;
     }
 
-    .nav-links a:hover::after {
-      width: 100%;
-    }
+    .nav-links a:hover::after { width: 100%; }
 
-    .hero,
-    .section {
-      padding: 68px 0;
-    }
+    .hero, .section { padding: 68px 0; }
 
     .hero {
       min-height: 92vh;
@@ -178,25 +135,15 @@
       border-bottom: 1px solid var(--line);
     }
 
-    .hero-grid,
-    .grid-2,
-    .grid-3,
-    .project-grid,
-    .cert-grid,
-    .contact-grid {
+    .hero-grid, .grid-2, .grid-3, .project-grid, .cert-grid, .contact-grid {
       display: grid;
       gap: 24px;
     }
 
-    .hero-grid {
-      grid-template-columns: 1.3fr 0.8fr;
-      align-items: center;
-    }
-
+    .hero-grid { grid-template-columns: 1.25fr 0.85fr; align-items: center; }
     .grid-2 { grid-template-columns: repeat(2, 1fr); }
-    .grid-3,
-    .project-grid { grid-template-columns: repeat(3, 1fr); }
-    .cert-grid { grid-template-columns: repeat(2, 1fr); }
+    .grid-3, .project-grid { grid-template-columns: repeat(3, 1fr); }
+    .cert-grid { grid-template-columns: repeat(3, 1fr); }
     .contact-grid { grid-template-columns: 1.2fr 0.8fr; }
 
     .badge {
@@ -237,25 +184,11 @@
       transition: transform 0.8s ease;
     }
 
-    .reveal.visible h2::after {
-      transform: scaleX(1);
-    }
+    .reveal.visible h2::after { transform: scaleX(1); }
 
-    h3 {
-      font-size: 22px;
-      margin: 0 0 8px;
-    }
-
-    h4 {
-      font-size: 18px;
-      margin: 0 0 10px;
-      color: #fff;
-    }
-
-    p {
-      margin: 0;
-      color: var(--muted);
-    }
+    h3 { font-size: 22px; margin: 0 0 8px; }
+    h4 { font-size: 18px; margin: 0 0 10px; color: #fff; }
+    p { margin: 0; color: var(--muted); }
 
     .eyebrow {
       font-size: 12px;
@@ -268,15 +201,9 @@
       transition: all 0.7s ease;
     }
 
-    .reveal.visible .eyebrow {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.visible .eyebrow { opacity: 1; transform: translateY(0); }
 
-    .lead {
-      font-size: 20px;
-      max-width: 760px;
-    }
+    .lead { font-size: 20px; max-width: 760px; }
 
     .card {
       background: linear-gradient(180deg, var(--panel), var(--panel2));
@@ -293,23 +220,27 @@
       border-color: rgba(56, 189, 248, 0.28);
     }
 
-    .robot-card:hover {
-      transform: translateY(-10px) scale(1.015);
-      box-shadow: 0 30px 60px rgba(14, 165, 233, 0.20);
-    }
-
     .profile-wrap {
       border-radius: 28px;
       padding: 14px;
       background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
       border: 1px solid var(--line);
+      position: relative;
+      min-height: 430px;
+      overflow: hidden;
     }
 
-    .profile-img {
+    .profile-particle-canvas {
       width: 100%;
-      max-width: 330px;
+      max-width: 360px;
+      aspect-ratio: 4 / 5;
       border-radius: 24px;
-      object-fit: cover;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .profile-hidden-image {
+      display: none;
     }
 
     .mini-stats {
@@ -327,9 +258,7 @@
       transition: transform 0.3s ease;
     }
 
-    .mini:hover {
-      transform: translateY(-4px);
-    }
+    .mini:hover { transform: translateY(-4px); }
 
     .mini strong {
       display: block;
@@ -337,12 +266,7 @@
       color: #fff;
     }
 
-    .tag-row,
-    .cta-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+    .tag-row, .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
 
     .tag {
       display: inline-block;
@@ -393,22 +317,10 @@
       box-shadow: 0 10px 30px rgba(56, 189, 248, 0.18);
     }
 
-    .btn:hover::before {
-      left: 120%;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--sky), var(--sky2));
-      border: none;
-    }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.09);
-    }
+    .btn:hover::before { left: 120%; }
+    .btn-primary { background: linear-gradient(135deg, var(--sky), var(--sky2)); border: none; }
+    .btn-secondary { background: rgba(255, 255, 255, 0.05); }
+    .btn-secondary:hover { background: rgba(255, 255, 255, 0.09); }
 
     .typing-wrap {
       min-height: 42px;
@@ -436,11 +348,7 @@
       border: 1px solid rgba(52, 211, 153, 0.20);
     }
 
-    .resume-note {
-      font-size: 13px;
-      margin-top: 10px;
-      color: #9fb3d1;
-    }
+    .resume-note { font-size: 13px; margin-top: 10px; color: #9fb3d1; }
 
     .contact-box {
       padding: 18px;
@@ -460,11 +368,7 @@
       margin-bottom: 12px;
     }
 
-    .footer {
-      padding: 26px 0 56px;
-      color: #90a3bf;
-      font-size: 14px;
-    }
+    .footer { padding: 26px 0 56px; color: #90a3bf; font-size: 14px; }
 
     .reveal {
       opacity: 0;
@@ -477,87 +381,33 @@
       transform: translateY(0);
     }
 
-    .stagger > * {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .stagger.visible > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.05s; }
-    .stagger.visible > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.11s; }
-    .stagger.visible > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.17s; }
-    .stagger.visible > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.23s; }
-    .stagger.visible > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.29s; }
-    .stagger.visible > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.35s; }
-
     .project-media {
       position: relative;
       margin-top: 14px;
     }
 
     .project-img {
-      display: none;
       width: 100%;
       border-radius: 16px;
       border: 1px solid rgba(255,255,255,0.08);
       cursor: pointer;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+      filter: contrast(1.05) saturate(1.05);
     }
 
-    .project-img.active {
-      display: block;
+    .project-img:hover {
+      transform: translateY(-5px) scale(1.01);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.28);
     }
 
-    .project-controls {
+    .cert-card {
       display: flex;
+      flex-direction: column;
       gap: 10px;
-      margin-top: 10px;
-      flex-wrap: wrap;
+      min-height: 210px;
     }
 
-    .project-controls button {
-      background: rgba(255,255,255,0.08);
-      color: white;
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 12px;
-      padding: 8px 14px;
-      cursor: pointer;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-
-    .project-controls button:hover {
-      background: rgba(255,255,255,0.14);
-      transform: translateY(-2px);
-    }
-
-    .view-demo-btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 14px;
-      border-radius: 12px;
-      background: rgba(56,189,248,0.14);
-      border: 1px solid rgba(56,189,248,0.25);
-      color: #d6f3ff;
-      font-weight: 600;
-      transition: transform 0.2s ease;
-    }
-
-    .view-demo-btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .video-frame {
-      width: 100%;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.10);
-      margin-top: 14px;
-      background: #000;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .robot-card:hover .video-frame {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 36px rgba(14, 165, 233, 0.18);
-    }
+    .cert-card p { font-size: 14px; }
 
     .popup {
       position: fixed;
@@ -578,9 +428,7 @@
       box-shadow: 0 30px 60px rgba(0,0,0,0.35);
     }
 
-    .popup.active {
-      display: flex;
-    }
+    .popup.active { display: flex; }
 
     .popup-close {
       position: absolute;
@@ -602,42 +450,16 @@
     }
 
     @keyframes wordRise {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 960px) {
       h1 { font-size: 42px; }
       h2 { font-size: 28px; }
       .typing-wrap { font-size: 20px; }
-
-      .hero-grid,
-      .grid-2,
-      .grid-3,
-      .project-grid,
-      .cert-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-inner {
-        align-items: flex-start;
-        gap: 12px;
-        flex-direction: column;
-      }
-
-      .stagger > * {
-        transition-duration: 0.5s;
-      }
-
-      .stagger.visible > *:nth-child(1) { transition-delay: 0.02s; }
-      .stagger.visible > *:nth-child(2) { transition-delay: 0.06s; }
-      .stagger.visible > *:nth-child(3) { transition-delay: 0.10s; }
-      .stagger.visible > *:nth-child(4) { transition-delay: 0.14s; }
-      .stagger.visible > *:nth-child(5) { transition-delay: 0.18s; }
-      .stagger.visible > *:nth-child(6) { transition-delay: 0.22s; }
+      .hero-grid, .grid-2, .grid-3, .project-grid, .cert-grid, .contact-grid { grid-template-columns: 1fr; }
+      .nav-inner { align-items: flex-start; gap: 12px; flex-direction: column; }
+      .profile-wrap { min-height: auto; }
     }
   </style>
 </head>
@@ -656,7 +478,6 @@
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#certifications">Certifications</a>
-        <a href="#github">GitHub</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -667,16 +488,12 @@
       <div>
         <div class="badge">Toronto, ON · Engineering Portfolio</div>
         <h1>Sachin Jat</h1>
-
         <div class="typing-wrap">
           <span class="typing-text" id="typingText"></span>
         </div>
-
-        <p class="lead">
-          Computer Engineering graduate focused on embedded systems, hardware troubleshooting, and IT support.
-          I build practical projects with Arduino, electronics, and real-world debugging workflows.
+        <p class="lead live-text">
+          Computer Engineering graduate focused on embedded systems, hardware troubleshooting, IT support, and practical engineering workflows. I build systems, test them, document them, and present them in a clean, professional way.
         </p>
-
         <div class="tag-row" style="margin-top: 18px;">
           <span class="tag">Arduino</span>
           <span class="tag">C++</span>
@@ -686,167 +503,104 @@
           <span class="tag">Networking</span>
           <span class="tag">Cybersecurity</span>
         </div>
-
         <div class="cta-row" style="margin-top: 24px;">
           <a class="btn btn-primary" href="#contact">Hire Me</a>
           <a class="btn btn-secondary" href="Sachin_Jat_Resume.docx" download>Download Resume</a>
           <a class="btn btn-secondary" href="https://github.com/jatsachin503-prog" target="_blank">GitHub</a>
           <a class="btn btn-secondary" href="https://www.linkedin.com/in/sachinjat" target="_blank">LinkedIn</a>
         </div>
-
         <p class="resume-note">Resume download uses the file included in this website package.</p>
       </div>
 
       <div class="profile-wrap">
-        <img src="profile.jpg" alt="Sachin Jat" class="profile-img" />
+        <canvas id="profileParticles" class="profile-particle-canvas"></canvas>
+        <img src="profile.jpg" alt="Sachin Jat" id="profileSource" class="profile-hidden-image" />
         <div class="mini-stats">
           <div class="mini"><strong class="counter" data-target="3">0</strong>Core portfolio projects</div>
-          <div class="mini"><strong class="counter" data-target="7">0</strong>Technical certifications</div>
+          <div class="mini"><strong class="counter" data-target="11">0</strong>LinkedIn certificates</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="about" class="section reveal stagger">
+  <section id="about" class="section reveal">
     <div class="container">
       <div class="eyebrow">Profile</div>
       <h2 class="word-reveal">About Me</h2>
       <div class="grid-3" style="margin-top:24px;">
         <div class="card">
-          <h3>About Me</h3>
-          <p>I am a Computer Engineering graduate from Sheridan College with hands-on experience in Arduino, electronics, hardware debugging, and technical support.</p>
+          <h3>Who I Am</h3>
+          <p class="live-text">I am a Computer Engineering graduate from Sheridan College with a strong interest in embedded systems, electronics, robotics, and technical support. My work combines practical hardware understanding with disciplined troubleshooting and technical documentation.</p>
         </div>
         <div class="card">
-          <h3>Career Goal</h3>
-          <p>Seeking entry-level opportunities in embedded systems, hardware technician, or IT support roles where I can contribute practical technical skills and continue growing through real-world work.</p>
+          <h3>What I Build</h3>
+          <p class="live-text">I enjoy building projects that move from concept to testing, such as Arduino-based measurement systems and automation-focused prototypes. I also create structured study guides and learning assets that show both technical understanding and communication skills.</p>
         </div>
         <div class="card">
-          <h3>Education</h3>
-          <p>Diploma in Computer Engineering<br />Sheridan College, Brampton, ON<br />Graduated: August 2025</p>
+          <h3>Career Direction</h3>
+          <p class="live-text">I am looking for opportunities in embedded systems, hardware support, robotics-related environments, and entry-level IT roles where I can contribute, learn quickly, and grow through hands-on engineering work.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="skills" class="section reveal stagger">
+  <section id="skills" class="section reveal">
     <div class="container">
       <div class="eyebrow">Technical Profile</div>
       <h2 class="word-reveal">Skills & Strengths</h2>
       <div class="grid-2" style="margin-top:24px;">
-        <div class="card">
-          <h3>Programming</h3>
-          <div class="tag-row" style="margin-top:14px;">
-            <span class="tag">C</span><span class="tag">C++</span><span class="tag">Python</span><span class="tag">Java</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Embedded Systems</h3>
-          <div class="tag-row" style="margin-top:14px;">
-            <span class="tag">Arduino</span><span class="tag">Microcontrollers</span><span class="tag">ADC</span><span class="tag">Sensors & Actuators</span><span class="tag">Real-Time Systems</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Hardware</h3>
-          <div class="tag-row" style="margin-top:14px;">
-            <span class="tag">Circuit Design</span><span class="tag">Soldering</span><span class="tag">PCB Assembly</span><span class="tag">Hardware Debugging</span><span class="tag">Multimeter</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>IT & Networking</h3>
-          <div class="tag-row" style="margin-top:14px;">
-            <span class="tag">Technical Support</span><span class="tag">Windows OS</span><span class="tag">Networking Fundamentals</span><span class="tag">System Troubleshooting</span>
-          </div>
-        </div>
+        <div class="card"><h3>Programming</h3><p class="live-text">C, C++, Python, and Java for academic, practical, and project-based work.</p></div>
+        <div class="card"><h3>Embedded Systems</h3><p class="live-text">Arduino, microcontrollers, ADC concepts, sensors, actuators, and real-time project thinking.</p></div>
+        <div class="card"><h3>Hardware</h3><p class="live-text">Circuit understanding, electronics handling, hardware debugging, testing, and multimeter-based validation.</p></div>
+        <div class="card"><h3>IT & Support</h3><p class="live-text">Technical support, Windows, networking fundamentals, service desk understanding, and troubleshooting workflows.</p></div>
       </div>
     </div>
   </section>
 
-  <section id="projects" class="section reveal stagger">
+  <section id="projects" class="section reveal">
     <div class="container">
       <div class="eyebrow" style="color:#bbf7d0;">Portfolio</div>
       <h2 class="word-reveal">Featured Projects</h2>
-
       <div class="project-grid" style="margin-top:24px;">
         <div class="card">
           <div class="project-category">Embedded Systems</div>
           <h3 style="margin-top:12px;">⚡ Arduino Digital Multimeter Prototype</h3>
-
           <div class="project-media">
-            <img src="mm2.jpeg" alt="Arduino setup" class="project-img active" onclick="openPopup(this.src)" />
-            <img src="MM1.jpeg" alt="Multimeter output" class="project-img" onclick="openPopup(this.src)" />
-            <div class="project-controls">
-              <button onclick="prevSlide(this)">‹ Prev</button>
-              <button onclick="nextSlide(this)">Next ›</button>
-            </div>
-            <a href="MM1.jpeg" target="_blank" class="view-demo-btn">View Final Output</a>
+            <img src="mm2.jpeg" alt="Arduino setup" class="project-img" onclick="openPopup(this.src)" />
           </div>
-
-          <p style="margin-top:14px;">
-            Designed and implemented an Arduino-based voltage measurement system using ADC and embedded C/C++.
-            Developed and validated the system through real multimeter comparison to improve measurement accuracy.
-          </p>
-
+          <p class="live-text" style="margin-top:14px;">Designed and implemented an Arduino-based voltage measurement workflow using ADC and embedded C/C++. I compared results with a real multimeter to validate readings and improve accuracy.</p>
           <div class="tag-row" style="margin-top:14px;">
-            <span class="subtag">ADC</span>
-            <span class="subtag">Calibration</span>
-            <span class="subtag">Circuit Testing</span>
-            <span class="subtag">Embedded C/C++</span>
+            <span class="subtag">ADC</span><span class="subtag">Calibration</span><span class="subtag">Testing</span><span class="subtag">Embedded C/C++</span>
           </div>
         </div>
 
-        <div class="card robot-card">
+        <div class="card">
           <div class="project-category">Robotics</div>
-          <h3 style="margin-top:12px;">🤖 Obstacle Avoidance Robot</h3>
-
-          <video controls preload="metadata" class="video-frame">
-            <source src="robot.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-
-          <a href="robot.mp4" target="_blank" class="view-demo-btn">Watch Full Demo</a>
-
-          <p style="margin-top:14px;">
-            Built an Arduino-based autonomous robot using ultrasonic sensors and motor-driver logic.
-            Implemented obstacle detection, real-time decision making, and verified movement through live testing.
-          </p>
-
+          <h3 style="margin-top:12px;">🤖 Robotics & Automation Exposure</h3>
+          <div class="project-media">
+            <img src="robot-arm.jpg" alt="Industrial robotic arm" class="project-img" onclick="openPopup(this.src)" />
+          </div>
+          <p class="live-text" style="margin-top:14px;">This section now highlights my robotics interest visually with a clean robotics image. It supports my broader interest in automation, sensing, control logic, and real-world hardware systems. Replace this later with your own robot build photo whenever you want.</p>
           <div class="tag-row" style="margin-top:14px;">
-            <span class="subtag">Ultrasonic Sensor</span>
-            <span class="subtag">Motor Control</span>
-            <span class="subtag">Autonomous Logic</span>
-            <span class="subtag">Debugging</span>
+            <span class="subtag">Robotics</span><span class="subtag">Automation</span><span class="subtag">Control Systems</span><span class="subtag">Hardware Systems</span>
           </div>
         </div>
 
         <div class="card">
           <div class="project-category">Technical Documentation</div>
-          <h3 style="margin-top:12px;">📘 Java OOP Complete Study Guide</h3>
-
-          <p style="margin-top:14px;">
-            Created two structured Java study guides covering both fundamentals and advanced OOP concepts for academic learning and interview preparation.
-          </p>
-
+          <h3 style="margin-top:12px;">📘 Java OOP Complete Study Guides</h3>
+          <p class="live-text" style="margin-top:14px;">Created structured Java study guides covering both fundamentals and advanced OOP concepts for academic learning, revision, and interview preparation.</p>
           <div class="tag-row" style="margin-top:14px;">
-            <span class="subtag">Java Basics</span>
-            <span class="subtag">OOP</span>
-            <span class="subtag">Multithreading</span>
-            <span class="subtag">Streams</span>
-            <span class="subtag">Documentation</span>
+            <span class="subtag">Java Basics</span><span class="subtag">OOP</span><span class="subtag">Multithreading</span><span class="subtag">Streams</span>
           </div>
-
           <div class="card" style="margin-top:18px;padding:18px;">
             <h4>Guide 1 — Java Fundamentals</h4>
-            <p style="margin-bottom:10px;">
-              Covers JDK, JRE, JVM, compiler, variables, strings, decisions, loops, objects, classes, static methods, encapsulation, abstraction, exceptions, overloading, enums, and arrays.
-            </p>
+            <p>Core Java concepts, variables, loops, classes, methods, arrays, exceptions, and foundations.</p>
             <a class="btn btn-primary" href="Java_Study_Guide_1.docx" download>Download Guide 1</a>
           </div>
-
           <div class="card" style="margin-top:14px;padding:18px;">
             <h4>Guide 2 — Advanced Java & OOP</h4>
-            <p style="margin-bottom:10px;">
-              Covers inheritance, overriding, annotations, interfaces, abstract classes, garbage collection, polymorphism, casting, HashMaps, multithreading, generics, lambdas, and streams.
-            </p>
+            <p>Inheritance, polymorphism, interfaces, streams, generics, lambdas, casting, and design relationships.</p>
             <a class="btn btn-primary" href="Java_Study_Guide_2.docx" download>Download Guide 2</a>
           </div>
         </div>
@@ -854,7 +608,7 @@
     </div>
   </section>
 
-  <section id="experience" class="section reveal stagger">
+  <section id="experience" class="section reveal">
     <div class="container">
       <div class="eyebrow" style="color:#fde68a;">Experience</div>
       <h2 class="word-reveal">Leadership & Technical Support</h2>
@@ -862,74 +616,46 @@
         <div class="card">
           <h3>Front Manager</h3>
           <p style="color:#fde68a;margin-bottom:12px;">Doaba Sweets & Restaurant</p>
-          <p>Managed daily operations and supervised a team of 20 staff members. Maintained 100% accuracy in POS transactions and provided troubleshooting support for POS systems and basic IT issues.</p>
+          <p class="live-text">Managed daily operations, supervised a 20-person team, maintained high transaction accuracy, and handled operational issues in a fast-paced environment. This role strengthened discipline, reliability, communication, and process-oriented thinking.</p>
         </div>
         <div class="card">
           <h3>Volunteer Club Coordinator</h3>
           <p style="color:#fde68a;margin-bottom:12px;">Aeronautical Club, Sheridan College</p>
-          <p>Coordinated technical workshops, engineering-related student activities, schedules, logistics, and team collaboration.</p>
+          <p class="live-text">Coordinated schedules, student activities, and technical workshop support while working closely with peers in an engineering-focused setting.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="certifications" class="section reveal stagger">
-    <div class="container card">
-      <div class="grid-2">
-        <div>
-          <div class="eyebrow" style="color:#ddd6fe;">Certifications</div>
-          <h2 class="word-reveal">Technical Credentials</h2>
-          <p style="margin-top:12px;">A focused certification path in hardware, IT support, cybersecurity, networking, and IT service management.</p>
-        </div>
-        <div class="cert-grid">
-          <div class="mini">CompTIA A+ Core 1 (220-1201) Cert Prep</div>
-          <div class="mini">CompTIA A+ Core 2 (220-1202) Cert Prep</div>
-          <div class="mini">ISC2 Certified in Cybersecurity (CC) Cert Prep</div>
-          <div class="mini">Computer Components and Peripherals for IT Technicians</div>
-          <div class="mini">Windows 10: Networking</div>
-          <div class="mini">Cloud and Virtualization for IT Support Professionals</div>
-          <div class="mini">ITIL 4 Foundation Concepts</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="github" class="section reveal stagger">
+  <section id="certifications" class="section reveal">
     <div class="container">
-      <div class="eyebrow">GitHub</div>
-      <h2 class="word-reveal">Development Activity</h2>
-      <div class="grid-2" style="margin-top:24px;">
-        <div class="card">
-          <img
-            src="https://github-readme-stats.vercel.app/api?username=jatsachin503-prog&show_icons=true&theme=tokyonight"
-            alt="GitHub stats"
-            style="width:100%;border-radius:16px;"
-          />
-        </div>
-        <div class="card">
-          <img
-            src="https://github-readme-stats.vercel.app/api/top-langs/?username=jatsachin503-prog&layout=compact&theme=tokyonight"
-            alt="Top languages"
-            style="width:100%;border-radius:16px;"
-          />
-        </div>
+      <div class="eyebrow" style="color:#ddd6fe;">Certifications</div>
+      <h2 class="word-reveal">LinkedIn Learning Certificates</h2>
+      <div class="cert-grid" style="margin-top:24px;">
+        <div class="card cert-card"><h4>CompTIA A+ Core 1</h4><p>Technical Support, Networking, and foundational IT skills.</p><a class="btn btn-secondary" href="comptia-a-core-1.pdf" download>Open Certificate</a></div>
+        <div class="card cert-card"><h4>CompTIA A+ Core 2</h4><p>Core support concepts for practical IT environments.</p><a class="btn btn-secondary" href="comptia-a-core-2.pdf" download>Open Certificate</a></div>
+        <div class="card cert-card"><h4>ISC2 CC Cert Prep</h4><p>Cybersecurity fundamentals and security awareness.</p><a class="btn btn-secondary" href="isc2-cc-cert-prep.pdf" download>Open Certificate</a></div>
+        <div class="card cert-card"><h4>Windows 10 Networking</h4><p>Networking configuration and Windows support skills.</p><a class="btn btn-secondary" href="windows-10-networking.pdf" download>Open Certificate</a></div>
+        <div class="card cert-card"><h4>Cloud & Virtualization</h4><p>Cloud computing and virtualization concepts for support roles.</p><a class="btn btn-secondary" href="cloud-virtualization-it-support.pdf" download>Open Certificate</a></div>
+        <div class="card cert-card"><h4>IT Service Desk Careers</h4><p>Service desk path planning and support-role readiness.</p><a class="btn btn-secondary" href="it-service-desk-careers.pdf" download>Open Certificate</a></div>
+        <div class="card cert-card"><h4>ITIL 4 Foundation Concepts</h4><p>IT service management fundamentals and applied concepts.</p><a class="btn btn-secondary" href="itil4-foundation-concepts.pdf" download>Open Certificate</a></div>
+        <div class="card cert-card"><h4>Customer Service Foundations</h4><p>Customer service and communication fundamentals.</p><a class="btn btn-secondary" href="customer-service-foundations.pdf" download>Open Certificate</a></div>
+        <div class="card cert-card"><h4>Negotiation Foundations</h4><p>Professional communication and negotiation awareness.</p><a class="btn btn-secondary" href="negotiation-foundations.pdf" download>Open Certificate</a></div>
+        <div class="card cert-card"><h4>Recruiting Foundations</h4><p>Understanding recruiting workflows and business communication.</p><a class="btn btn-secondary" href="recruiting-foundations.pdf" download>Open Certificate</a></div>
+        <div class="card cert-card"><h4>Data Engineering Foundations</h4><p>Introductory data engineering concepts and information technology foundations.</p><a class="btn btn-secondary" href="data-engineering-foundations.pdf" download>Open Certificate</a></div>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="section reveal stagger">
+  <section id="contact" class="section reveal">
     <div class="container card">
       <div class="contact-grid">
         <div>
           <div class="eyebrow">Let's Connect</div>
           <h2 class="word-reveal">Open to Technical Opportunities</h2>
-          <p style="margin-top:12px;">
-            I’m currently seeking roles in embedded systems, hardware support, and IT support where I can contribute, learn quickly, and grow through practical engineering work.
-          </p>
+          <p class="live-text" style="margin-top:12px;">I am currently open to embedded systems, hardware support, robotics-related, and IT support opportunities where I can contribute practical skills and keep growing through real project work.</p>
           <div class="tag-row" style="margin-top:16px;">
-            <span class="subtag">Embedded Systems</span>
-            <span class="subtag">Hardware Technician</span>
-            <span class="subtag">IT Support</span>
+            <span class="subtag">Embedded Systems</span><span class="subtag">Hardware Technician</span><span class="subtag">IT Support</span>
           </div>
         </div>
         <div class="contact-box">
@@ -946,9 +672,7 @@
     </div>
   </section>
 
-  <div class="container footer">
-    © 2026 Sachin Jat · Portfolio Website
-  </div>
+  <div class="container footer">© 2026 Sachin Jat · Portfolio Website</div>
 
   <div class="popup" id="popup">
     <span class="popup-close" onclick="closePopup()">&times;</span>
@@ -960,7 +684,7 @@
       "Computer Engineering Graduate",
       "Embedded Systems Builder",
       "Hardware & IT Support Focused",
-      "Arduino Projects & Technical Documentation"
+      "Technical Documentation Creator"
     ];
 
     let roleIndex = 0;
@@ -970,11 +694,9 @@
 
     function typeRole() {
       const currentRole = roles[roleIndex];
-
       if (!deleting) {
         typingTarget.textContent = currentRole.substring(0, charIndex + 1);
         charIndex++;
-
         if (charIndex === currentRole.length) {
           deleting = true;
           setTimeout(typeRole, 1200);
@@ -983,66 +705,49 @@
       } else {
         typingTarget.textContent = currentRole.substring(0, charIndex - 1);
         charIndex--;
-
         if (charIndex === 0) {
           deleting = false;
           roleIndex = (roleIndex + 1) % roles.length;
         }
       }
-
       setTimeout(typeRole, deleting ? 40 : 75);
     }
-
     typeRole();
 
-    const observer = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
+        if (entry.isIntersecting) entry.target.classList.add("visible");
       });
     }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-
-    function nextSlide(button) {
-      const media = button.closest(".project-media");
-      const slides = media.querySelectorAll(".project-img");
-      let activeIndex = [...slides].findIndex(img => img.classList.contains("active"));
-      slides[activeIndex].classList.remove("active");
-      activeIndex = (activeIndex + 1) % slides.length;
-      slides[activeIndex].classList.add("active");
-    }
-
-    function prevSlide(button) {
-      const media = button.closest(".project-media");
-      const slides = media.querySelectorAll(".project-img");
-      let activeIndex = [...slides].findIndex(img => img.classList.contains("active"));
-      slides[activeIndex].classList.remove("active");
-      activeIndex = (activeIndex - 1 + slides.length) % slides.length;
-      slides[activeIndex].classList.add("active");
-    }
+    const progressBar = document.getElementById('scrollProgress');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = progress + '%';
+    });
 
     function openPopup(src) {
-      document.getElementById("popupImage").src = src;
-      document.getElementById("popup").classList.add("active");
+      document.getElementById('popupImage').src = src;
+      document.getElementById('popup').classList.add('active');
     }
 
     function closePopup() {
-      document.getElementById("popup").classList.remove("active");
+      document.getElementById('popup').classList.remove('active');
     }
 
-    document.getElementById("popup").addEventListener("click", function (e) {
-      if (e.target.id === "popup") closePopup();
+    document.getElementById('popup').addEventListener('click', function (e) {
+      if (e.target.id === 'popup') closePopup();
     });
 
-    const counters = document.querySelectorAll(".counter");
+    const counters = document.querySelectorAll('.counter');
     counters.forEach(counter => {
       const updateCounter = () => {
-        const target = +counter.getAttribute("data-target");
+        const target = +counter.getAttribute('data-target');
         const current = +counter.innerText;
         const increment = Math.max(1, Math.ceil(target / 20));
-
         if (current < target) {
           counter.innerText = current + increment > target ? target : current + increment;
           setTimeout(updateCounter, 60);
@@ -1051,36 +756,96 @@
       updateCounter();
     });
 
-    const progressBar = document.getElementById("scrollProgress");
-    window.addEventListener("scroll", () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      progressBar.style.width = progress + "%";
-    });
-
-    document.querySelectorAll(".word-reveal").forEach((heading) => {
+    document.querySelectorAll('.word-reveal').forEach((heading) => {
+      if (heading.dataset.processed === 'true') return;
       const text = heading.textContent.trim();
-      heading.textContent = "";
-      const words = text.split(" ");
-
-      words.forEach((word, index) => {
-        const span = document.createElement("span");
-        span.textContent = word + " ";
+      heading.textContent = '';
+      text.split(' ').forEach((word, index) => {
+        const span = document.createElement('span');
+        span.textContent = word + ' ';
         span.style.animationDelay = `${index * 0.08}s`;
         heading.appendChild(span);
       });
-
+      heading.dataset.processed = 'true';
       const headingObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
+          if (entry.isIntersecting) entry.target.classList.add('visible');
         });
       }, { threshold: 0.4 });
-
       headingObserver.observe(heading);
     });
+
+    document.querySelectorAll('.live-text').forEach((el) => {
+      const original = el.textContent.trim();
+      el.dataset.original = original;
+      el.textContent = '';
+      const liveObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          let i = 0;
+          const text = entry.target.dataset.original;
+          const typer = setInterval(() => {
+            entry.target.textContent = text.slice(0, i + 1);
+            i++;
+            if (i >= text.length) clearInterval(typer);
+          }, 10);
+          obs.unobserve(entry.target);
+        });
+      }, { threshold: 0.25 });
+      liveObserver.observe(el);
+    });
+
+    const canvas = document.getElementById('profileParticles');
+    const ctx = canvas.getContext('2d');
+    const sourceImg = document.getElementById('profileSource');
+
+    function initParticlePortrait() {
+      const width = 360;
+      const height = 450;
+      canvas.width = width;
+      canvas.height = height;
+
+      const tempCanvas = document.createElement('canvas');
+      const tempCtx = tempCanvas.getContext('2d');
+      tempCanvas.width = width;
+      tempCanvas.height = height;
+      tempCtx.drawImage(sourceImg, 0, 0, width, height);
+
+      const imgData = tempCtx.getImageData(0, 0, width, height).data;
+      const particles = [];
+      const gap = 6;
+
+      for (let y = 0; y < height; y += gap) {
+        for (let x = 0; x < width; x += gap) {
+          const index = (y * width + x) * 4;
+          const alpha = imgData[index + 3];
+          if (alpha > 120) {
+            particles.push({
+              x: Math.random() * width,
+              y: Math.random() * height,
+              tx: x,
+              ty: y,
+              color: `rgba(${imgData[index]}, ${imgData[index + 1]}, ${imgData[index + 2]}, 0.95)`
+            });
+          }
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach(p => {
+          p.x += (p.tx - p.x) * 0.08;
+          p.y += (p.ty - p.y) * 0.08;
+          ctx.fillStyle = p.color;
+          ctx.fillRect(p.x, p.y, 2.4, 2.4);
+        });
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+
+    if (sourceImg.complete) initParticlePortrait();
+    else sourceImg.onload = initParticlePortrait;
   </script>
 </body>
 </html>
